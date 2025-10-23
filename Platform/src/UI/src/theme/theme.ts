@@ -1,0 +1,187 @@
+import { createTheme } from '@mui/material/styles';
+
+// IOM Official Brand Colors based on their website
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#003366', // IOM Official Navy Blue
+      light: '#336699',
+      dark: '#001122',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#66B2FF', // IOM Light Blue
+      light: '#99CCFF',
+      dark: '#3399FF',
+      contrastText: '#003366',
+    },
+    background: {
+      default: '#f8f9fa', // Very light gray
+      paper: '#ffffff',
+    },
+    text: {
+      primary: '#003366', // Dark blue for primary text
+      secondary: '#666666',
+    },
+    info: {
+      main: '#17a2b8',
+      light: '#5bc0de',
+      dark: '#117a8b',
+    },
+    success: {
+      main: '#28a745',
+      light: '#5cb85c',
+      dark: '#1e7e34',
+    },
+    warning: {
+      main: '#ffc107',
+      light: '#ffce3a',
+      dark: '#e0a800',
+    },
+    error: {
+      main: '#dc3545',
+      light: '#f5c6cb',
+      dark: '#bd2130',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontSize: '2.5rem',
+      fontWeight: 600,
+      color: '#003366',
+      letterSpacing: '-0.01562em',
+    },
+    h2: {
+      fontSize: '2rem',
+      fontWeight: 600,
+      color: '#003366',
+      letterSpacing: '-0.00833em',
+    },
+    h3: {
+      fontSize: '1.75rem',
+      fontWeight: 500,
+      color: '#003366',
+      letterSpacing: '0em',
+    },
+    h4: {
+      fontSize: '1.5rem',
+      fontWeight: 500,
+      color: '#003366',
+      letterSpacing: '0.00735em',
+    },
+    h5: {
+      fontSize: '1.25rem',
+      fontWeight: 500,
+      color: '#003366',
+      letterSpacing: '0em',
+    },
+    h6: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: '#003366',
+      letterSpacing: '0.0075em',
+    },
+    body1: {
+      fontSize: '1rem',
+      fontWeight: 400,
+      lineHeight: 1.6,
+      color: '#333333',
+    },
+    body2: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      lineHeight: 1.5,
+      color: '#666666',
+    },
+    button: {
+      fontSize: '0.875rem',
+      fontWeight: 500,
+      textTransform: 'none', // Remove uppercase transformation
+      letterSpacing: '0.02857em',
+    },
+  },
+  shape: {
+    borderRadius: 8,
+  },
+  spacing: 8,
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+          fontWeight: 500,
+          paddingTop: 12,
+          paddingBottom: 12,
+          paddingLeft: 24,
+          paddingRight: 24,
+        },
+        contained: {
+          boxShadow: '0 2px 8px rgba(0, 51, 102, 0.15)',
+          '&:hover': {
+            boxShadow: '0 4px 12px rgba(0, 51, 102, 0.25)',
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+          boxShadow: '0 2px 12px rgba(0, 51, 102, 0.08)',
+          '&:hover': {
+            boxShadow: '0 4px 20px rgba(0, 51, 102, 0.12)',
+          },
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#003366',
+          color: '#ffffff',
+          boxShadow: '0 2px 8px rgba(0, 51, 102, 0.15)',
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#f8f9fa',
+          borderRight: '1px solid rgba(0, 51, 102, 0.12)',
+        },
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          margin: '4px 8px',
+          '&.Mui-selected': {
+            backgroundColor: '#003366',
+            color: '#ffffff',
+            '&:hover': {
+              backgroundColor: '#336699',
+            },
+            '& .MuiListItemIcon-root': {
+              color: '#ffffff',
+            },
+          },
+          '&:hover': {
+            backgroundColor: 'rgba(0, 51, 102, 0.04)',
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+        },
+      },
+    },
+  },
+});
+
+export default theme;

@@ -1,0 +1,100 @@
+<policies>
+    <inbound>
+        <base />
+        <!-- 0) Basic content-type check for beginners -->
+        <choose>
+            <when condition="@(!context.Request.Headers.ContainsKey("Content-Type") || 
+                        !context.Request.Headers.GetValueOrDefault("Content-Type","").Contains("application/xml"))">
+                <return-response>
+                    <set-status code="415" reason="Unsupported Media Type" />
+                    <set-body>{"error":"Please POST with Content-Type: application/xml"}</set-body>
+                </return-response>
+            </when>
+        </choose>
+
+        <!-- Capture raw bytes and Base64 encode to preserve exact SOAP XML (including signatures) -->
+        <set-variable name="soapBytes" value="@(context.Request.Body.As<byte[]>(preserveContent: true))" />
+        <set-variable name="soapB64" value="@{ return Convert.ToBase64String((byte[])context.Variables["soapBytes"]); }" />
+        <!-- 1) Pull the topic name from the URL -->
+        <set-variable name="topicName" value="@(context.Request.MatchedParameters["topicName"])" />
+        <!-- 2) Create/propagate IDs we want on the message -->
+        <set-variable name="corrId" value="@(context.Request.Headers.GetValueOrDefault("x-correlation-id", Guid.NewGuid().ToString()))" />
+        <set-variable name="msgId" value="@{ return Guid.NewGuid().ToString(); }" />
+        <!-- 3) Tell Service Bus this body is JSON (becomes the message ContentType) -->
+        <set-header name="Content-Type" exists-action="override">
+            <value>application/json</value>
+        </set-header>
+        <!-- 4) Add custom application properties (mapped to SB user properties as headers) -->
+        <!--     Use any safe header names; values without quotes will be typed (bool/number) per REST rules. -->
+        <set-header name="x-app-source" exists-action="override">
+            <value>apim</value>
+        </set-header>
+        <set-header name="x-correlation-id" exists-action="override">
+            <value>@((string)context.Variables["corrId"])</value>
+        </set-header>
+        <set-header name="priority" exists-action="override">
+            <value>1</value>
+        </set-header>
+        <!-- 5) BrokerProperties must be a single JSON header -->
+        <set-header name="BrokerProperties" exists-action="override">
+            <value>@{
+                var msgId  = (string)context.Variables["msgId"];
+                var corrId = (string)context.Variables["corrId"];
+                return "{\"MessageId\":\"" + msgId +
+                        "\",\"CorrelationId\":\"" + corrId +
+                        "\",\"Label\":\"eMedical\",\"TimeToLive\":300}";
+            }</value>
+        </set-header>
+        <!-- NServiceBus headers as Service Bus user properties -->
+        <set-header name="NServiceBus.EnclosedMessageTypes" exists-action="override">
+            <value>Medical.Domain.Contracts.Events.eMedicalMsgRecieved, Domain</value>
+        </set-header>
+        <set-header name="NServiceBus.MessageId" exists-action="override">
+            <value>@((string)context.Variables["msgId"])</value>
+        </set-header>
+        <set-header name="NServiceBus.CorrelationId" exists-action="override">
+            <value>@((string)context.Variables["corrId"])</value>
+        </set-header>
+  
+        <!-- Build NServiceBus JSON message with Base64-encoded SOAP XML -->
+        <set-body>@{
+    var b64 = (string)context.Variables["soapB64"];
+    return "{" +
+           "\"$type\":\"Medical.Domain.Contracts.Events.eMedicalMsgRecieved, Medical.Domain\"," +
+           "\"SoapEnvelopeBase64\":\"" + b64 + "\"" +
+           "}";
+}</set-body>
+        
+        <!-- 6) Use APIM's Managed Identity to auth against Service Bus -->
+        <authentication-managed-identity resource="https://servicebus.azure.net/" />
+        <!-- 7) Point APIM at your Service Bus REST endpoint and rewrite to /{topic}/messages -->
+        <set-method>POST</set-method>
+        <set-backend-service base-url="https://migrate.servicebus.windows.net" />
+        <rewrite-uri template="@("/" + (string)context.Variables["topicName"] + "/messages")" copy-unmatched-params="false" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        <!-- Default: pass through the Service Bus response (usually 201 Created). -->
+    </outbound>
+    <on-error>
+        <base />
+        <return-response>
+            <set-status code="500" reason="APIM pipeline error" />
+            <set-header name="Content-Type" exists-action="override">
+                <value>application/json</value>
+            </set-header>
+            <set-body>@{
+                var err = new JObject(
+                    new JProperty("message", context.LastError?.Message),
+                    new JProperty("reason", context.LastError?.Reason),
+                    new JProperty("source", context.LastError?.Source),
+                    new JProperty("scope",  context.LastError?.Scope)
+                );
+                return err.ToString();
+            }</set-body>
+        </return-response>
+    </on-error>
+</policies>

@@ -1,0 +1,358 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Medical/Migrate.sln"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Start Azurite (Storage Emulator)",
+            "type": "shell",
+            "command": "azurite --silent --location c:\\temp\\azurite --debug c:\\temp\\azurite\\debug.log",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Azurite.*starting.*$",
+                    "endsPattern": "^.*Azurite.*successfully.*$"
+                }
+            }
+        },
+        {
+            "label": "Start CosmosDB Emulator",
+            "type": "shell",
+            "command": "\"C:\\Program Files\\Azure Cosmos DB Emulator\\CosmosDB.Emulator.exe\" /NoExplorer /NoUI",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Start UI",
+            "type": "shell",
+            "command": "npm start",
+            "options": {
+                "cwd": "${workspaceFolder}/Platform/src/UI"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "webpack",
+                "source": "webpack",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*webpack.*compiling.*$",
+                    "endsPattern": "^.*webpack.*compiled.*$"
+                }
+            }
+        },
+        {
+            "label": "Start Platform API",
+            "type": "shell",
+            "command": "dotnet clean && timeout /t 2 /nobreak && func start --port 7071 --cors \"http://localhost:3000\"",
+            "options": {
+                "cwd": "${workspaceFolder}/Platform/src/Api"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Starting host.*$",
+                    "endsPattern": "^.*Host started.*$"
+                }
+            }
+        },
+        {
+            "label": "Start Platform Messaging",
+            "type": "shell",
+            "command": "dotnet clean && timeout /t 2 /nobreak && func start --port 7072",
+            "options": {
+                "cwd": "${workspaceFolder}/Platform/src/Endpoint.In"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Starting host.*$",
+                    "endsPattern": "^.*Host started.*$"
+                }
+            }
+        },
+        {
+            "label": "Start Beneficiary API",
+            "type": "shell",
+            "command": "dotnet clean && timeout /t 3 /nobreak && func start --port 7075 --cors \"http://localhost:3000\"",
+            "options": {
+                "cwd": "${workspaceFolder}/Beneficiary/src/Api"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Starting host.*$",
+                    "endsPattern": "^.*Host started.*$"
+                }
+            }
+        },
+        {
+            "label": "Start Beneficiary Messaging",
+            "type": "shell",
+            "command": "dotnet clean && timeout /t 3 /nobreak && func start --port 7074",
+            "options": {
+                "cwd": "${workspaceFolder}/Beneficiary/src/Endpoint.In"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "dev-servers"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Starting host.*$",
+                    "endsPattern": "^.*Host started.*$"
+                }
+            }
+        },
+        {
+            "label": "Clean All Projects",
+            "type": "shell",
+            "command": "dotnet clean && dotnet clean",
+            "options": {
+                "cwd": "${workspaceFolder}/Platform"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "Clean Beneficiary Projects",
+            "type": "shell",
+            "command": "dotnet clean",
+            "options": {
+                "cwd": "${workspaceFolder}/Beneficiary"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Start Platform Services",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Start UI",
+                "Start Platform API",
+                "Start Platform Messaging"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Start Beneficiary Services",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Start Beneficiary API",
+                "Start Beneficiary Messaging"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Start All Services (Sequential)",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Start Azurite (Storage Emulator)",
+                "Start UI",
+                "Start Platform API",
+                "Start Platform Messaging",
+                "Start Beneficiary API",
+                "Start Beneficiary Messaging"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Start All Services",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "Start Azurite (Storage Emulator)",
+                "Start UI",
+                "Start Platform API",
+                "Start Platform Messaging",
+                "Start Beneficiary API",
+                "Start Beneficiary Messaging"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Start All Services + CosmosDB",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Start Azurite (Storage Emulator)",
+                "Start CosmosDB Emulator",
+                "Start UI",
+                "Start Platform API", 
+                "Start Platform Messaging",
+                "Start Beneficiary API",
+                "Start Beneficiary Messaging"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Start All Services (PowerShell Script)",
+            "type": "shell",
+            "command": ".\\start-all-services.ps1",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        }
+    ]
+}

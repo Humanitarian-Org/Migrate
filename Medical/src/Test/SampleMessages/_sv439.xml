@@ -1,0 +1,88 @@
+﻿<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <soap:Header>
+    <wsse:Security xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap12:mustUnderstand="1">
+      <wsu:Timestamp wsu:Id="Timestamp-6defa0c8-4e27-43c7-a510-0eb0d7e1dda8">
+        <wsu:Created>2024-07-29T11:22:12Z</wsu:Created>
+        <wsu:Expires>2024-07-29T11:29:12Z</wsu:Expires>
+      </wsu:Timestamp>
+      <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="SecurityToken-0a92c6da-b36d-4b24-946d-0eb0d7e1fc0a">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</wsse:BinarySecurityToken>
+      <ds:Signature>
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+          <ds:Reference URI="#Timestamp-6defa0c8-4e27-43c7-a510-0eb0d7e1dda8">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>grTWhvcH/Jwd4VOeVJpPu7DC58E=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#SoapBody-ed56204a-6d2e-4012-a311-0eb0d7e17c60">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>xttaTAVaR5N+IoGemJlI00o+GWU=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-7e352bb7-cf7d-4376-898b-0eb0d7e1238a">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>uErUWBfQ5K1Mrm57xF8xSmRj6eM=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-40082fe5-3c7f-4243-8491-0eb0d7e1679f">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>om8CNi0Fd4VBRUacEljdAXZBQ4Q=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-4031bbdf-10d2-4f10-8fe8-0eb0d7e13621">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>T7pOoarY8yCC/QuYtI7WxfqnlCA=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-fa298a7d-00ca-418a-9e41-0eb0d7e16650">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>yQ1UkAl2B2FJTxIHovd48Nekb7Y=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>dN/v3WnIX8kRcyo/KsGhxbewm0SFjodLZa3Q77QMWJocvrVO0q+TGVF9UaYYnu9ienyzghPDDkvTyQAHz/L8RF1EXFrp/6Y4VfsYBFshWCC+YMOsPY28Rgc8WahxrPU4w3yCrby5yeU5ezlcZpUNoepbfYYm6qa52Fejao8ydqxpAJMOO2fVrJnaxuVT/2MhBF2LgoAv1AbeYQausMgkKTdADvSeHP34vWNcItvXSZG1W1BUDAs2ddORSKGLpVhXwIz6TniINt6UUQPm5wsGkvf3KiJW2JRZ5qVXw5joBRRThaRY9iHgJJTqabCBPMGDD0SpHpmkiGg565GXdbH+zQ==</ds:SignatureValue>
+        <ds:KeyInfo>
+          <wsse:SecurityTokenReference>
+            <wsse:Reference URI="#SecurityToken-0a92c6da-b36d-4b24-946d-0eb0d7e1fc0a" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" />
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+    <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-7e352bb7-cf7d-4376-898b-0eb0d7e1238a">http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/DeleteCachedHealthCaseRequest</wsa:Action>
+    <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-40082fe5-3c7f-4243-8491-0eb0d7e1679f">104751881722252080475</wsa:MessageID>
+    <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-4031bbdf-10d2-4f10-8fe8-0eb0d7e13621">https://api.iom.int/eMedicalInterface/services/eMedicalPort12</wsa:To>
+    <wsa:ReplyTo xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-fa298a7d-00ca-418a-9e41-0eb0d7e16650">
+      <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+    </wsa:ReplyTo>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SoapBody-ed56204a-6d2e-4012-a311-0eb0d7e17c60">
+    <DeleteCachedHealthCaseRequest xmlns="http://www.immi.gov.au/Namespace/Health/Service/V1.0">
+      <ns1:CorrelationID xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">J70L104751881722252080475</ns1:CorrelationID>
+      <ns0:HealthCaseIdentifierMsg xmlns:ns0="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+        <ns1:HealthCaseIdentifier xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns1:HealthCaseIdentifierValue>J70L1124362538</ns1:HealthCaseIdentifierValue>
+          <ns1:HealthCaseIdentifierType>UCI</ns1:HealthCaseIdentifierType>
+        </ns1:HealthCaseIdentifier>
+      </ns0:HealthCaseIdentifierMsg>
+      <ns0:HealthCaseIdentifierMsg xmlns:ns0="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+        <ns1:HealthCaseIdentifier xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns1:HealthCaseIdentifierValue>J70L22536799</ns1:HealthCaseIdentifierValue>
+          <ns1:HealthCaseIdentifierType>IME</ns1:HealthCaseIdentifierType>
+        </ns1:HealthCaseIdentifier>
+      </ns0:HealthCaseIdentifierMsg>
+    </DeleteCachedHealthCaseRequest>
+  </soap:Body>
+</soap:Envelope>

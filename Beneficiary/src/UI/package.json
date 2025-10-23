@@ -1,0 +1,34 @@
+{
+  "name": "@iom/beneficiary-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IOM Beneficiary UI - Micro-frontend remote application",
+  "scripts": {
+    "start": "webpack serve --mode development --port 3001",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "serve": "serve dist -s -l 3001"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "@mui/material": "^5.11.0",
+    "@mui/icons-material": "^5.11.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.7.4",
+    "@module-federation/webpack": "^1.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.2",
+    "css-loader": "^6.7.3",
+    "style-loader": "^3.3.1"
+  }
+}

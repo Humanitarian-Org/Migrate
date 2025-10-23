@@ -1,0 +1,45 @@
+{
+  "name": "@iom/platform-ui-shell",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IOM Platform UI Shell - Micro-frontend host application",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "serve": "serve dist -s -l 3000",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "@mui/material": "^5.11.0",
+    "@mui/icons-material": "^5.11.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/system": "^5.11.0",
+    "papaparse": "^5.4.1",
+    "xlsx": "^0.18.5",
+    "react-hook-form": "^7.43.0",
+    "@hookform/resolvers": "^2.9.11",
+    "yup": "^1.0.0",
+    "react-dropzone": "^14.2.3",
+    "@microsoft/signalr": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/papaparse": "^5.3.7",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.7.4",
+    "@webpack-cli/serve": "^2.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.2",
+    "css-loader": "^6.7.3",
+    "style-loader": "^3.3.1",
+    "serve": "^14.2.0"
+  }
+}

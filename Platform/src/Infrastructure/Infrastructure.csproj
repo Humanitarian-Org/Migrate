@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="queues.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.53.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NServiceBus.Persistence.CosmosDB" Version="3.1.2" />
+    <PackageReference Include="NServiceBus.AzureFunctions.Worker.ServiceBus" Version="6.0.0" />
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="NServiceBus.CustomChecks" Version="5.0.1" />
+  <PackageReference Include="NServiceBus.Heartbeat" Version="5.0.1" />
+  <PackageReference Include="NServiceBus.Metrics.ServiceControl" Version="5.0.1" />
+  <PackageReference Include="NServiceBus.SagaAudit" Version="5.0.2" />
+  <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+
+        <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+</Project>

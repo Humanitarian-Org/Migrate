@@ -1,0 +1,44 @@
+<!-- # CODEOWNERS for IOM Migration Platform
+# This file defines who must review changes to specific parts of the codebase
+
+# Global ownership - require review from development team leads
+* @dev-team-leads
+
+# Validation Rules - Business and Development Team Review Required
+Beneficiary/docs/beneficiary-validation-rules.md @business-team @dev-team-leads
+
+# Validation Implementation Files - Development Team Review Required
+Beneficiary/src/Domain/DTOs/BeneficiaryRegistrationDto.cs @backend-team @dev-team-leads
+Beneficiary/src/Domain/Managers/BeneficiaryManager.cs @backend-team @dev-team-leads
+Platform/src/UI/src/pages/BeneficiaryBulkImport.tsx @frontend-team @dev-team-leads
+Platform/src/UI/src/components/ValidationRulesDialog.tsx @frontend-team @dev-team-leads
+
+# GitHub Workflows - DevOps Team Review Required  
+.github/workflows/ @devops-team @dev-team-leads
+
+# Infrastructure and Configuration
+*.yml @devops-team
+*.yaml @devops-team
+Dockerfile @devops-team
+docker-compose*.yml @devops-team
+
+# Security-sensitive files
+local.settings.json.template @security-team @dev-team-leads
+*/queues.ps1 @security-team @devops-team
+
+# Documentation that affects business processes
+*/docs/*.md @business-team @dev-team-leads
+
+# Database migrations and schema changes
+*/migrations/ @database-team @dev-team-leads
+*/Infrastructure/ @backend-team @devops-team
+
+# Test files - require review from respective teams
+**/Test/ @qa-team @dev-team-leads
+**/*.test.* @qa-team
+**/*.spec.* @qa-team
+
+# Package and dependency management
+package.json @frontend-team @security-team
+*.csproj @backend-team @security-team
+requirements.txt @backend-team @security-team -->

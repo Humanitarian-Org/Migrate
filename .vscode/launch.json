@@ -1,0 +1,119 @@
+{
+    // See https://go.microsoft.com/fwlink/?linkid=830387 for more about launch configurations
+    "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Launch All Medical Projects",
+            "configurations": [
+                "Medical: Func Start Api",
+                "Medical: Func Start Endpoint.In",
+                "Medical: Func Start Endpoint.Out"
+            ]
+        },
+        {
+            "name": "Launch All Platform & Beneficiary Services",
+            "configurations": [
+                "Platform: UI Dev Server",
+                "Platform: API",
+                "Platform: Messaging",
+                "Beneficiary: API",
+                "Beneficiary: Messaging"
+            ]
+        },
+        {
+            "name": "Launch Everything (All Systems)",
+            "configurations": [
+                "Platform: UI Dev Server",
+                "Platform: API", 
+                "Platform: Messaging",
+                "Beneficiary: API",
+                "Beneficiary: Messaging",
+                "Medical: Func Start Api",
+                "Medical: Func Start Endpoint.In",
+                "Medical: Func Start Endpoint.Out"
+            ]
+        }
+    ],
+    "configurations": [
+        // Medical System (Original)
+        {
+            "name": "Medical: Func Start Api",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "func",
+            "args": ["start", "--port", "7071"],
+            "cwd": "${workspaceFolder}/Medical/src/Api",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Medical: Func Start Endpoint.In",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "func",
+            "args": ["start", "--port", "7072"],
+            "cwd": "${workspaceFolder}/Medical/src/Endpoint.In",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Medical: Func Start Endpoint.Out",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "func",
+            "args": ["start", "--port", "7073"],
+            "cwd": "${workspaceFolder}/Medical/src/Endpoint.Out",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        // Platform System
+        {
+            "name": "Platform: UI Dev Server",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm start",
+            "cwd": "${workspaceFolder}/Platform/src/UI"
+        },
+        {
+            "name": "Platform: API",
+            "type": "coreclr", 
+            "request": "launch",
+            "program": "func",
+            "args": ["start", "--port", "7071", "--cors", "http://localhost:3000"],
+            "cwd": "${workspaceFolder}/Platform/src/Api",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Platform: Messaging",
+            "type": "coreclr",
+            "request": "launch", 
+            "program": "func",
+            "args": ["start", "--port", "7072"],
+            "cwd": "${workspaceFolder}/Platform/src/Endpoint.In",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        // Beneficiary System
+        {
+            "name": "Beneficiary: API",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "func", 
+            "args": ["start", "--port", "7075", "--cors", "http://localhost:3000"],
+            "cwd": "${workspaceFolder}/Beneficiary/src/Api",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Beneficiary: Messaging", 
+            "type": "coreclr",
+            "request": "launch",
+            "program": "func",
+            "args": ["start", "--port", "7074"],
+            "cwd": "${workspaceFolder}/Beneficiary/src/Endpoint.In",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}

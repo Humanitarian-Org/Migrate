@@ -1,0 +1,52 @@
+### Bulk Beneficiary Upload API Test
+
+POST http://localhost:7071/api/beneficiary/bulk-upload
+Content-Type: application/json
+
+{
+  "uploadId": "test-upload-001",
+  "fileName": "test_beneficiaries.csv",
+  "userId": "test-user",
+  "records": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "dateOfBirth": "1990-01-15",
+      "nationality": "Syrian",
+      "documentType": "Passport",
+      "documentNumber": "SY123456789",
+      "email": "john.doe@email.com",
+      "phone": "+1234567890",
+      "address": "123 Main Street",
+      "city": "Damascus",
+      "country": "Syria",
+      "emergencyContact": "Jane Doe",
+      "emergencyPhone": "+1234567891",
+      "medicalConditions": "None",
+      "specialNeeds": "None",
+      "caseStatus": "PENDING",
+      "caseWorker": "Sarah Smith",
+      "notes": "Initial registration"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "dateOfBirth": "1985-05-20",
+      "nationality": "Iraqi",
+      "documentType": "ID Card",
+      "documentNumber": "IQ987654321",
+      "email": "jane.smith@email.com",
+      "phone": "+1234567891",
+      "address": "456 Oak Avenue",
+      "city": "Baghdad",
+      "country": "Iraq",
+      "emergencyContact": "John Smith",
+      "emergencyPhone": "+1234567892",
+      "medicalConditions": "Diabetes",
+      "specialNeeds": "Wheelchair access",
+      "caseStatus": "ACTIVE",
+      "caseWorker": "Mike Johnson",
+      "notes": "Follow-up required"
+    }
+  ]
+}

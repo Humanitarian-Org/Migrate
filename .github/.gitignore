@@ -1,0 +1,11 @@
+# Validation Rule Change Detection and Processing
+*.diff
+rule-changes.*
+
+# Temporary GitHub workflow files
+.github/temp/
+.github/cache/
+
+# Copilot agent working directory
+.copilot-workspace/
+copilot-analysis/

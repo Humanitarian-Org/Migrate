@@ -1,0 +1,4 @@
+firstName,lastName,dateOfBirth,nationality,documentType,documentNumber,email,phone,address,city,country,emergencyContact,emergencyPhone,medicalConditions,specialNeeds,caseStatus,caseWorker,notes
+JohnJohnJohnJohnJohn2John2John2JohnJohnJohnJohnJohn2John2John2,Doe,1990-01-15,Syrian,Passport,SY123456789,john.doe@email.com,+1234567890,123 Main Street,Damascus,Syria,Jane Doe,+1234567891,None,None,PENDING,Sarah Smith,Initial registration
+Maria,Garcia,1985-03-22,Venezuelan,ID Card,VE987654321,maria.garcia@email.com,+5551234567,456 Oak Avenue,Caracas,Venezuela,Carlos Garcia,+5551234568,Diabetes,Dietary requirements,ACTIVE,Michael Johnson,Referred by NGO partner
+Ahmed,Hassan,1992-07-08,Afghan,Passport,AF555666777,ahmed.hassan@email.com,+93123456789,789 Pine Road,Kabul,Afghanistan,Fatima Hassan,+93123456790,None,None,PENDING,Emma Wilson,Family of 4 members

@@ -1,0 +1,223 @@
+name: Validation Rules Synchronization
+
+on:
+  push:
+    paths:
+      - 'Beneficiary/docs/beneficiary-validation-rules.md'
+    branches: [main, master, develop]
+  workflow_dispatch:
+    inputs:
+      force_sync:
+        description: 'Force synchronization even without changes'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  sync-validation-rules:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Detect changes
+        id: detect
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.force_sync }}" == "true" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Change detection bypassed - manual trigger"
+          else
+            if git diff HEAD~1 HEAD --name-only | grep -q "beneficiary-validation-rules.md"; then
+              echo "changed=true" >> $GITHUB_OUTPUT
+              echo "Validation rules changes detected"
+            else
+              echo "changed=false" >> $GITHUB_OUTPUT
+              echo "No validation rules changes detected"
+            fi
+          fi
+          
+      - name: Extract rule changes
+        if: steps.detect.outputs.changed == 'true'
+        run: |
+          echo "Extracting changes from validation rules file..."
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Manual workflow trigger - analyzing current state" > rule-changes.diff
+            git show HEAD:Beneficiary/docs/beneficiary-validation-rules.md >> rule-changes.diff
+          else
+            git diff HEAD~1 HEAD Beneficiary/docs/beneficiary-validation-rules.md > rule-changes.diff
+          fi
+          
+          # Show diff for debugging
+          echo "=== RULE CHANGES DETECTED ==="
+          cat rule-changes.diff
+          echo "============================"
+          
+      - name: Create synchronization issue
+        if: steps.detect.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let diff = '';
+            try {
+              diff = fs.readFileSync('rule-changes.diff', 'utf8');
+            } catch (error) {
+              diff = 'Unable to read diff file';
+            }
+            
+            const issueTitle = `🔄 Validation Rules Update Required - ${new Date().toISOString().split('T')[0]}`;
+            
+            // Check if similar issue already exists
+            const existingIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'validation-rules,auto-generated',
+              state: 'open'
+            });
+            
+            // Close existing open issues to avoid duplicates
+            for (const issue of existingIssues.data) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+            }
+            
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: `
+                ## 📋 Validation Rule Changes Detected
+                
+                **Triggered by**: @${{ github.actor }}
+                **Commit**: [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})
+                **Branch**: \`${{ github.ref_name }}\`
+                **Timestamp**: ${new Date().toISOString()}
+                **Event**: ${{ github.event_name }}
+                
+                ### 🎯 Files Requiring Updates:
+                
+                - [ ] **Frontend Validation** 
+                  - File: \`Platform/src/UI/src/pages/BeneficiaryBulkImport.tsx\`
+                  - Function: \`validateBeneficiaryRecord\`
+                  
+                - [ ] **Validation Rules Dialog**
+                  - File: \`Platform/src/UI/src/components/ValidationRulesDialog.tsx\`
+                  - Component: Validation rule display and user guidance
+                  
+                - [ ] **Retry Beneficiary Form**
+                  - File: \`Platform/src/UI/src/components/RetryBeneficiaryForm.tsx\`
+                  - Function: \`validateForm\` method for individual beneficiary retry validation
+                  
+                - [ ] **DTO Validation**
+                  - File: \`Beneficiary/src/Domain/DTOs/BeneficiaryRegistrationDto.cs\`
+                  - Methods: Data annotations and \`Validate()\` method
+                  
+                - [ ] **Business Logic Validation**
+                  - File: \`Beneficiary/src/Domain/Managers/BeneficiaryManager.cs\`
+                  - Method: \`ValidateBusinessRulesAsync\`
+                
+                ### 📝 Change Details:
+                
+                <details>
+                <summary>Click to view validation rule changes (table format may render differently in diff)</summary>
+                
+                > **Note**: The validation rules are now in structured table format. When reviewing changes, focus on:
+                > - New/modified field requirements and constraints
+                > - Changes to validation logic or business rules  
+                > - Updates to error messages or formats
+                > - New validation categories or enhancements
+                
+                \`\`\`diff
+                ${diff.substring(0, 3000)}${diff.length > 3000 ? '\n... (truncated for length - see full diff in commit)' : ''}
+                \`\`\`
+                
+                </details>
+                
+                ### 🤖 GitHub Copilot Instructions:
+                
+                @copilot Please analyze the validation rule changes above and help implement the necessary code updates across all validation layers:
+                
+                **Important**: The validation rules are now in structured table format for better readability. When implementing changes:
+                - Focus on the "Validation Rules" and "Business Rules" columns in the tables
+                - Pay attention to changes in "Length Constraints" and "Format/Values" columns
+                - Check the "Validation Strategy Overview" section for new validation categories
+                - Review the "Valid Document Types" and "Valid Case Statuses" lists for enum updates
+                
+                1. **Frontend TypeScript validation** in \`BeneficiaryBulkImport.tsx\`
+                2. **Validation Rules Dialog** in \`ValidationRulesDialog.tsx\` 
+                3. **Retry Beneficiary Form validation** in \`RetryBeneficiaryForm.tsx\`
+                4. **C# DTO validation** with data annotations  
+                5. **Business logic validation** in the manager class
+                
+                Please ensure:
+                - All five validation layers remain synchronized
+                - ValidationRulesDialog.tsx displays updated rules to users
+                - RetryBeneficiaryForm.tsx validates individual records consistently
+                - Existing functionality is preserved
+                - Comprehensive test coverage is included
+                - Error messages follow our standardized format
+                - Security considerations are addressed
+                
+                ### 📋 Implementation Checklist:
+                
+                - [ ] Frontend validation logic updated (BeneficiaryBulkImport.tsx)
+                - [ ] Validation rules dialog updated (ValidationRulesDialog.tsx)
+                - [ ] Retry form validation updated (RetryBeneficiaryForm.tsx)
+                - [ ] Backend DTO validation updated
+                - [ ] Business logic validation updated
+                - [ ] Unit tests updated/added
+                - [ ] Integration tests verified
+                - [ ] Error messages standardized
+                - [ ] User-facing rule descriptions updated
+                - [ ] Security review completed (if external validations changed)
+                - [ ] Documentation updated
+                
+                ### 🔍 Review Requirements:
+                
+                - [ ] Automated tests pass
+                - [ ] Code review approved
+                - [ ] Business user acceptance
+                - [ ] Performance impact assessed
+                
+                ---
+                
+                **Auto-generated by Validation Rules Sync Workflow** ⚡
+                
+                **Need help?** Check the [Business-Driven Validation Workflow Guide](./Beneficiary/docs/business-driven-validation-workflow.md)
+              `,
+              labels: [
+                'validation-rules',
+                'auto-generated', 
+                'copilot-agent',
+                'high-priority',
+                'enhancement'
+              ]
+            });
+            
+            console.log(`✅ Created issue #${issue.data.number}: ${issue.data.title}`);
+            core.setOutput('issue_number', issue.data.number);
+            
+      - name: Notify completion
+        if: steps.detect.outputs.changed == 'true'
+        run: |
+          echo "✅ Validation rules synchronization workflow completed"
+          echo "📋 Issue created for Copilot agent processing"
+          echo "🔔 Developers will be notified for review"
+          
+      - name: No changes detected
+        if: steps.detect.outputs.changed == 'false'
+        run: |
+          echo "ℹ️ No validation rule changes detected in this commit"
+          echo "Workflow completed - no action required"

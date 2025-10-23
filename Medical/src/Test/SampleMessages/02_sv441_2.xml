@@ -1,0 +1,134 @@
+﻿<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <soap:Header>
+    <wsse:Security xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap12:mustUnderstand="1">
+      <wsu:Timestamp wsu:Id="Timestamp-cf234201-e074-4177-a652-24c51ba9682a">
+        <wsu:Created>2025-03-07T06:25:02Z</wsu:Created>
+        <wsu:Expires>2025-03-07T06:32:02Z</wsu:Expires>
+      </wsu:Timestamp>
+      <wsse:BinarySecurityToken wsu:Id="SecurityToken-c0afc409-711e-4ef6-8640-24c51ba92ba6" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3">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</wsse:BinarySecurityToken>
+      <ds:Signature>
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+          <ds:Reference URI="#Timestamp-cf234201-e074-4177-a652-24c51ba9682a">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>MKcPJA9NYhRACpZ9PKKPeVL9OhU=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#SoapBody-6170e858-08c5-48c8-ac69-24c51ba971a2">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>MauSjyG7dLdDtKfy6x5km5u/cqA=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-13e34183-a81d-4c69-af89-24c51ba9e333">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>dCiThUb8g6Q2pPkfwkMinCbQFzw=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-428f7a4c-a58d-460a-b428-24c51ba9de52">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>06or97kJ9iT5PCTt0D6QCylxm9o=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-9b41b1f8-acda-4145-b552-24c51ba92b7c">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>8AlGTjyBwDZKMhlnzaM7jviRLrM=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Header-9f47e7a3-44a3-4214-984a-24c51ba9030e">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <ds:DigestValue>l9pIB8XG+mBSCtT9clnl4ekmCfA=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>qqwuHUwYEjf1s1/+ctQO5KUM5XgFpinIDJcYoYPVZ3x5WA1CvppP4JYnhrduwye4nMb50ghwvmqX6hKtCfJpIYMLfz+Tas4iq3fBB04TLiaQETvbFs0HxP8ddBSqwujvXmgNo4l189PnjDsj+hoXzJiM4s8skFsyi9CNQOLrakvYwSOYdgKA0LTlGnHO23L8aEWLxydGD4a3SCfGf/CFEjc+92s6fZd8pNCqmVYmiedeSNWONd+GQ3njjl3ECyS8wojbRFJcYWfu4KHgjJixaTmN6rtZEzKrcg6o1p3Bf3BAvXWgeHzyTJqOiwTGQOwDbUp9s90sok7il7EbtLXzzQ==</ds:SignatureValue>
+        <ds:KeyInfo>
+          <wsse:SecurityTokenReference>
+            <wsse:Reference URI="#SecurityToken-c0afc409-711e-4ef6-8640-24c51ba92ba6" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" />
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+    <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-13e34183-a81d-4c69-af89-24c51ba9e333">http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyMedicalExaminationStatusRequest</wsa:Action>
+    <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-428f7a4c-a58d-460a-b428-24c51ba9de52">1337151741328671495</wsa:MessageID>
+    <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-9b41b1f8-acda-4145-b552-24c51ba92b7c">https://20.76.132.139/eMedicalInterface/services/eMedicalPort12</wsa:To>
+    <wsa:ReplyTo xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-9f47e7a3-44a3-4214-984a-24c51ba9030e">
+      <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+    </wsa:ReplyTo>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SoapBody-6170e858-08c5-48c8-ac69-24c51ba971a2">
+    <NotifyMedicalExaminationStatusRequest xmlns="http://www.immi.gov.au/Namespace/Health/Service/V1.0">
+      <ns1:CorrelationID xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">1337151741328671495</ns1:CorrelationID>
+      <ns0:HealthCaseIdentifierMsg xmlns:ns0="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+        <ns1:HealthCaseIdentifier xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns1:HealthCaseIdentifierValue>1705635497213</ns1:HealthCaseIdentifierValue>
+          <ns1:HealthCaseIdentifierType>IME</ns1:HealthCaseIdentifierType>
+        </ns1:HealthCaseIdentifier>
+      </ns0:HealthCaseIdentifierMsg>
+      <ns0:HealthCaseIdentifierMsg xmlns:ns0="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+        <ns1:HealthCaseIdentifier xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns1:HealthCaseIdentifierValue>UCI1705635497213</ns1:HealthCaseIdentifierValue>
+          <ns1:HealthCaseIdentifierType>UCI</ns1:HealthCaseIdentifierType>
+        </ns1:HealthCaseIdentifier>
+      </ns0:HealthCaseIdentifierMsg>
+      <ns0:HealthCaseIdentifierMsg xmlns:ns0="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+        <ns1:HealthCaseIdentifier xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns1:HealthCaseIdentifierValue>-</ns1:HealthCaseIdentifierValue>
+          <ns1:HealthCaseIdentifierType>PREVIOUS_ITERATION_SUBMISSION_DATE</ns1:HealthCaseIdentifierType>
+        </ns1:HealthCaseIdentifier>
+      </ns0:HealthCaseIdentifierMsg>
+      <ns1:CachedCreationDate xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+        <ns3:UnstructuredYear xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">2025</ns3:UnstructuredYear>
+        <ns3:UnstructuredMonth xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">3</ns3:UnstructuredMonth>
+        <ns3:UnstructuredDay xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">7</ns3:UnstructuredDay>
+      </ns1:CachedCreationDate>
+      <NotifyMedicalExaminationStatusRequestHealthRequirement>
+        <ns1:HealthRequirementType xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">712</ns1:HealthRequirementType>
+        <ns1:CachedCreatedTimestamp xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns3:UnstructuredYear xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">2025</ns3:UnstructuredYear>
+          <ns3:UnstructuredMonth xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">3</ns3:UnstructuredMonth>
+          <ns3:UnstructuredDay xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">7</ns3:UnstructuredDay>
+          <ns3:UnstructuredHour xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">6</ns3:UnstructuredHour>
+          <ns3:UnstructuredMinute xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">24</ns3:UnstructuredMinute>
+          <ns3:UnstructuredSecond xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">31</ns3:UnstructuredSecond>
+        </ns1:CachedCreatedTimestamp>
+        <ns1:HealthRequirementStatusCode xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">RFRD</ns1:HealthRequirementStatusCode>
+        <ns1:CachedStatusTimestamp xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+          <ns3:UnstructuredYear xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">2025</ns3:UnstructuredYear>
+          <ns3:UnstructuredMonth xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">3</ns3:UnstructuredMonth>
+          <ns3:UnstructuredDay xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">7</ns3:UnstructuredDay>
+          <ns3:UnstructuredHour xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">6</ns3:UnstructuredHour>
+          <ns3:UnstructuredMinute xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">24</ns3:UnstructuredMinute>
+          <ns3:UnstructuredSecond xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">31</ns3:UnstructuredSecond>
+        </ns1:CachedStatusTimestamp>
+        <NotifyMedicalExaminationStatusRequestExamination>
+          <ns1:ExaminationStatus xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">RFRD</ns1:ExaminationStatus>
+          <ns1:CachedStatusTimestamp xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+            <ns3:UnstructuredYear xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">2025</ns3:UnstructuredYear>
+            <ns3:UnstructuredMonth xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">3</ns3:UnstructuredMonth>
+            <ns3:UnstructuredDay xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">7</ns3:UnstructuredDay>
+            <ns3:UnstructuredHour xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">6</ns3:UnstructuredHour>
+            <ns3:UnstructuredMinute xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">24</ns3:UnstructuredMinute>
+            <ns3:UnstructuredSecond xmlns:ns3="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">31</ns3:UnstructuredSecond>
+          </ns1:CachedStatusTimestamp>
+          <ns1:ClinicID xmlns:ns1="http://www.immi.gov.au/Namespace/Health/Core/V1.0">TR123</ns1:ClinicID>
+          <ns5:UserId xmlns:ns5="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0">DOCtwo IOM</ns5:UserId>
+          <ns10:UserName xmlns:ns10="http://www.immi.gov.au/Namespace/ApplicationContext/Core/V1.0">e20909</ns10:UserName>
+          <ns5:CommentText xmlns:ns5="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0">Required under policy</ns5:CommentText>
+        </NotifyMedicalExaminationStatusRequestExamination>
+      </NotifyMedicalExaminationStatusRequestHealthRequirement>
+    </NotifyMedicalExaminationStatusRequest>
+  </soap:Body>
+</soap:Envelope>

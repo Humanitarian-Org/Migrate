@@ -1,0 +1,57 @@
+### Test POST to SignalRFunction negotiate
+POST http://localhost:7071/api/negotiate
+Content-Type: application/json
+
+### Test SendUploadProgress directly (use your correlation ID from browser console)
+POST http://localhost:7071/api/SendUploadProgress
+Content-Type: application/json
+
+{
+  "correlationId": "782e8a46-a589-46db-a6cc-800fe2a08bb7",
+  "uploadId": "test-manual-progress",
+  "processedRecords": 25,
+  "totalRecords": 100,
+  "percentageComplete": 25.0,
+  "currentStatus": "Manual test - Processing 25 of 100 records"
+}
+
+### Test SendUploadProgress with different progress
+POST http://localhost:7071/api/SendUploadProgress
+Content-Type: application/json
+
+{
+  "correlationId": "782e8a46-a589-46db-a6cc-800fe2a08bb7",
+  "uploadId": "test-manual-progress",
+  "processedRecords": 75,
+  "totalRecords": 100,
+  "percentageComplete": 75.0,
+  "currentStatus": "Manual test - Processing 75 of 100 records"
+}
+
+### Test SendUploadCompleted
+POST http://localhost:7071/api/SendUploadCompleted
+Content-Type: application/json
+
+{
+  "correlationId": "d64f23ca-09ad-48e7-9c18-2108c685abfd",
+  "uploadId": "test-manual-progress",
+  "totalRecords": 100,
+  "successfulRecords": 95,
+  "failedRecords": 5,
+  "completedAt": "2025-10-13T16:00:00Z",
+  "status": "Completed with 5 errors",
+  "errors": ["Record 23 failed validation", "Record 67 missing required field"]
+}
+
+### Test with generic correlation ID (for testing without UI upload)
+POST http://localhost:7071/api/SendUploadProgress
+Content-Type: application/json
+
+{
+  "correlationId": "test-correlation-123",
+  "uploadId": "generic-test",
+  "processedRecords": 10,
+  "totalRecords": 50,
+  "percentageComplete": 20.0,
+  "currentStatus": "Generic test - 10 of 50 processed"
+}

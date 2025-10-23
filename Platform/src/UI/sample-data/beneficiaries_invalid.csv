@@ -1,0 +1,16 @@
+firstName,lastName,dateOfBirth,nationality,documentType,documentNumber,email,phone,address,city,country,emergencyContact,emergencyPhone,medicalConditions,specialNeeds,caseStatus,caseWorker,notes
+,Smith,1990-01-15,American,Passport,US123456789,missing.firstname@email.com,+1234567890,123 Main Street,New York,USA,Jane Smith,+1234567891,None,None,PENDING,Sarah Smith,Missing first name
+John,,1985-03-22,Canadian,Passport,CA987654321,missing.lastname@email.com,+1555123456,456 Oak Avenue,Toronto,Canada,Jane Doe,+1555123457,None,None,ACTIVE,Michael Johnson,Missing last name
+Maria,Garcia,,Venezuelan,ID Card,VE111222333,missing.dob@email.com,+5551234567,789 Pine Road,Caracas,Venezuela,Carlos Garcia,+5551234568,None,None,PENDING,Emma Wilson,Missing date of birth
+Ahmed,Hassan,1992-07-08,,Passport,AF555666777,missing.nationality@email.com,+93123456789,321 Cedar Street,Kabul,Afghanistan,Fatima Hassan,+93123456790,None,None,ACTIVE,David Brown,Missing nationality
+Fatou,Diallo,1988-11-30,Malian,,ML444333222,missing.doctype@email.com,+22370123456,654 Birch Lane,Bamako,Mali,Mamadou Diallo,+22370123457,None,None,PENDING,Lisa Taylor,Missing document type
+Oleksandr,Petrov,1975-09-12,Ukrainian,Passport,,missing.docnumber@email.com,+380501234567,987 Maple Drive,Kyiv,Ukraine,Oksana Petrova,+380501234568,None,None,COMPLETED,Robert Davis,Missing document number
+Amara,Kone,2025-05-18,Ivorian,Birth Certificate,CI888999000,future.date@email.com,+22505123456,159 Elm Street,Abidjan,Côte d'Ivoire,Sekou Kone,+22505123457,None,None,PENDING,Jennifer Lee,Future date of birth (invalid)
+Hassan,Al-Rashid,1982-13-35,Iraqi,Passport,IQ777888999,invalid.date@email.com,+964771234567,753 Willow Court,Baghdad,Iraq,Zahra Al-Rashid,+964771234568,None,None,ACTIVE,Mark Anderson,Invalid date format
+Esperanza,Morales,1990-08-25,Honduran,National ID,HN666555444,invalid-email-format,+50498765432,852 Spruce Avenue,Tegucigalpa,Honduras,Miguel Morales,+50498765433,None,None,PENDING,Angela White,Invalid email format
+Blessing,Okafor,1987-04-14,Nigerian,Passport,NG333222111,blessing.okafor@email.com,+2348012345678,456 Teak Road,Lagos,Nigeria,Chike Okafor,+2348012345679,None,None,INVALID_STATUS,Thomas Clark,Invalid case status
+Khin,Myint,1983-10-07,Myanmar,National ID,MM,khin.myint@email.com,+95912345678,159 Pine Street,Yangon,Myanmar,Thant Myint,+95912345679,None,None,ACTIVE,Sarah Wilson,Document number too short
+Carlos,Rodriguez,not-a-date,Mexican,Passport,MX789456123,carlos.rodriguez@email.com,+52155123456,321 Oak Boulevard,Mexico City,Mexico,Elena Rodriguez,+52155123457,None,None,PENDING,David Kim,Invalid date format
+Ana,Popovic,1985-03-22,Serbian,ID Card,RS456789123,ana.popovic@,+381601234567,654 Elm Road,Belgrade,Serbia,Marko Popovic,+381601234568,None,None,ACTIVE,Lisa Brown,Incomplete email address
+Mohamed,Ibrahim,1992-07-08,Somali,Passport,SO123456789,mohamed.ibrahim@email.com,+252901234567,987 Cedar Avenue,Mogadishu,Somalia,Aisha Ibrahim,+252901234568,None,None,,Jennifer Davis,Missing case status
+Valentina,Kozlov,1988-11-30,Russian,Passport,RU987654321,valentina.kozlov@email.com,+79001234567,753 Birch Street,Moscow,Russia,Dmitri Kozlov,+79001234568,None,None,pending,Michael Taylor,Case status should be uppercase

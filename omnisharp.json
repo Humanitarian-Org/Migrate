@@ -1,0 +1,13 @@
+{
+  "MsBuild": {
+    "UseBundledOnly": false
+  },
+  "FormattingOptions": {
+    "EnableEditorConfigSupport": true,
+    "OrganizeImports": true
+  },
+  "RoslynExtensionsOptions": {
+    "EnableAnalyzersSupport": true,
+    "LocationPaths": []
+  }
+}
