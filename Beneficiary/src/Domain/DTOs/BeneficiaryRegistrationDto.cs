@@ -14,7 +14,7 @@ namespace Beneficiary.Domain.DTOs
 
         // Required Personal Information
         [Required(ErrorMessage = "First name is required")]
-        [StringLength(40, ErrorMessage = "First name cannot exceed 40 characters")]
+        [StringLength(43, ErrorMessage = "First name cannot exceed 43 characters")]
         public string FirstName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Last name is required")]
