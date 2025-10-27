@@ -52,7 +52,7 @@ The beneficiary validation system employs a **multi-layered approach** with diff
 
 | Field | Property | Required | Length Constraints | Format/Values | Validation Rules | Business Rules |
 |-------|----------|----------|-------------------|---------------|------------------|----------------|
-| **First Name** | `firstName` | ✅ Yes | Max: 37 chars | String | Non-empty, trimmed | - |
+| **First Name** | `firstName` | ✅ Yes | Max: 45 chars | String | Non-empty, trimmed | - |
 | **Last Name** | `lastName` | ✅ Yes | Max: 100 chars | String | Non-empty, trimmed | - |
 | **Date of Birth** | `dateOfBirth` | ✅ Yes | - | `YYYY-MM-DD` (ISO 8601) | Must be valid date, not future, not >150 years ago | Must parse with `DateTime.TryParseExact` |
 | **Nationality** | `nationality` | ✅ Yes | Max: 50 chars | String | Non-empty, trimmed | Must exist in supported countries list (TODO) |
