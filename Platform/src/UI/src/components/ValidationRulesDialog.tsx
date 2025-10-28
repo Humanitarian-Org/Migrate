@@ -60,7 +60,7 @@ const ValidationRulesDialog: React.FC<ValidationRulesDialogProps> = ({ open, onC
     {
       name: 'First Name',
       field: 'firstName',
-      maxLength: 37,
+      maxLength: 45,
       description: 'Beneficiary\'s first name',
       icon: <PersonIcon color="primary" />
     },

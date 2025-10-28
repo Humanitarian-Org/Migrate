@@ -12,7 +12,7 @@ namespace Test
         {
             // Arrange
             var dto = CreateValidDto();
-            dto.FirstName = "John"; // 4 characters - within 40 char limit
+            dto.FirstName = "John"; // 4 characters - within 45 char limit
 
             // Act
             var results = dto.Validate();
@@ -27,7 +27,7 @@ namespace Test
         {
             // Arrange
             var dto = CreateValidDto();
-            dto.FirstName = "1234567890123456789012345678901234567890123"; // Exactly 43 characters
+            dto.FirstName = "123456789012345678901234567890123456789012345"; // Exactly 45 characters
 
             // Act
             var results = dto.Validate();
@@ -42,7 +42,7 @@ namespace Test
         {
             // Arrange
             var dto = CreateValidDto();
-            dto.FirstName = "12345678901234567890123456789012345678901234"; // 44 characters - exceeds 43 char limit
+            dto.FirstName = "1234567890123456789012345678901234567890123456"; // 46 characters - exceeds 45 char limit
 
             // Act
             var results = dto.Validate();
@@ -50,7 +50,7 @@ namespace Test
             // Assert
             var firstNameErrors = results.Where(r => r.MemberNames.Contains("FirstName")).ToList();
             Assert.NotEmpty(firstNameErrors);
-            Assert.Contains("First name cannot exceed 43 characters", firstNameErrors[0].ErrorMessage);
+            Assert.Contains("First name cannot exceed 45 characters", firstNameErrors[0].ErrorMessage);
         }
 
         [Fact]

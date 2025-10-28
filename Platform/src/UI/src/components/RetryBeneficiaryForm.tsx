@@ -126,7 +126,7 @@ const RetryBeneficiaryForm: React.FC<RetryBeneficiaryFormProps> = ({
     switch (field) {
       case 'firstName':
         if (!value.trim()) return 'First name is required';
-        if (value.length > 37) return 'First name cannot exceed 37 characters';
+        if (value.length > 45) return 'First name cannot exceed 45 characters';
         break;
       
       case 'lastName':

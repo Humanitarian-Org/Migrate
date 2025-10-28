@@ -167,7 +167,7 @@ const ValidationErrorFixForm: React.FC<ValidationErrorFixFormProps> = ({
 
     // String length validations
     const stringLengthValidations = [
-      { field: 'firstName', maxLength: 100, displayName: 'First name' },
+      { field: 'firstName', maxLength: 45, displayName: 'First name' },
       { field: 'lastName', maxLength: 100, displayName: 'Last name' },
       { field: 'nationality', maxLength: 50, displayName: 'Nationality' },
       { field: 'documentType', maxLength: 50, displayName: 'Document type' },

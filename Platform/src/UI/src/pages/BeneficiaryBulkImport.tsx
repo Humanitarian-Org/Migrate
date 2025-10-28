@@ -257,7 +257,7 @@ const BeneficiaryBulkImport: React.FC = () => {
 
     // Field length validation
     const fieldLengthLimits: { [key: string]: number } = {
-      firstName: 37,
+      firstName: 45,
       lastName: 100,
       nationality: 50,
       documentType: 50,
