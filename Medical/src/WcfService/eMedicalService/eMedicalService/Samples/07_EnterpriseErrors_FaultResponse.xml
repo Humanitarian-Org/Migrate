@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Header>
+      <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">RegisterHealthCaseResponse</wsa:Action>
+      <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">error-response-001</wsa:MessageID>
+      <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">sample-message-001</wsa:RelatesTo>
+   </soap:Header>
+   <soap:Body>
+      <soap:Fault>
+         <soap:Code>
+            <soap:Value>soap:Sender</soap:Value>
+         </soap:Code>
+         <soap:Reason>
+            <soap:Text xml:lang="en">Enterprise Error: Invalid document number format</soap:Text>
+         </soap:Reason>
+         <soap:Detail>
+            <EnterpriseErrors xmlns="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0">
+               <ErrorCode>VAL_ERR_001</ErrorCode>
+               <ErrorMessage>Document number '12345' does not match required pattern for document type '01'. Expected format: 2 letters followed by 6-8 digits.</ErrorMessage>
+               <Timestamp>2025-11-10T10:25:00Z</Timestamp>
+               <ErrorDetails>
+                  <Field>DocumentNumber</Field>
+                  <Value>12345</Value>
+                  <ExpectedPattern>[A-Z]{2}[0-9]{6,8}</ExpectedPattern>
+                  <SuggestedValue>AB123456</SuggestedValue>
+               </ErrorDetails>
+            </EnterpriseErrors>
+         </soap:Detail>
+      </soap:Fault>
+   </soap:Body>
+</soap:Envelope>

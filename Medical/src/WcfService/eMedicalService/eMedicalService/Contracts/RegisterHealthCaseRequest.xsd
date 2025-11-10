@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ptycore="http://www.immi.gov.au/Namespace/Party/Core/V1.0" xmlns:pidcore="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" xmlns:hltmsg="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" xmlns:hltcore="http://www.immi.gov.au/Namespace/Health/Core/V1.0" xmlns:hlt="http://www.immi.gov.au/Namespace/Health/Service/V2.0" xmlns:ecore="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" elementFormDefault="qualified" targetNamespace="http://www.immi.gov.au/Namespace/Health/Service/V2.0" version="2.0" xml:lang="en">
+	<xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/EnterpriseCore.xsd"/>
+	<xs:import namespace="http://www.immi.gov.au/Namespace/Health/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthCore.xsd"/>
+	<xs:import namespace="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthMessaging.xsd"/>
+	<xs:import namespace="http://www.immi.gov.au/Namespace/Party/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/PartyCore.xsd"/>
+	<xs:import namespace="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/PersonIdentityCore.xsd"/>
+	<xs:element name="RegisterHealthCaseRequest" type="hlt:registerHealthCaseRequestType"/>
+	<xs:complexType name="registerHealthCaseClientBiographicalDetailsType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="ecore:Title"/>
+			<xs:element minOccurs="0" ref="ecore:GivenName"/>
+			<xs:element ref="ecore:FamilyName"/>
+			<xs:element ref="pidcore:SexType"/>
+			<xs:element ref="hltcore:CachedBirthYear"/>
+			<xs:element minOccurs="0" ref="hltcore:CachedBirthMonth"/>
+			<xs:element minOccurs="0" ref="hltcore:CachedBirthDay"/>
+			<xs:element minOccurs="0" ref="pidcore:BirthCountryCode"/>
+			<xs:element minOccurs="0" ref="ptycore:RelationshipToPrimaryApplicant"/>
+			<xs:element minOccurs="0" ref="hltmsg:HealthIdentityDocumentMsg"/>
+			<xs:element minOccurs="0" ref="hltmsg:HealthClientContactListMsg"/>
+			<xs:element maxOccurs="unbounded" name="RegisterHealthCaseVisaContext" type="hlt:registerHealthCaseVisaContextType"/>
+			<xs:element minOccurs="0" name="RegisterHealthCaseRequirementList" type="hlt:registerHealthCaseRequirementListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="registerHealthCaseRequestType">
+		<xs:sequence>
+			<xs:element ref="hltcore:CorrelationID"/>
+			<xs:element ref="hltcore:CachedCreationDate"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" ref="hltmsg:HealthCaseIdentifierMsg"/>
+			<xs:element minOccurs="0" ref="hltmsg:HealthClinicIdentifierMsg"/>
+			<xs:element name="RegisterHealthCaseClientBiographicalDetails" type="hlt:registerHealthCaseClientBiographicalDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="registerHealthCaseRequirementListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="RegisterHealthCaseRequirement" type="hlt:registerHealthCaseRequirementType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="registerHealthCaseRequirementType">
+		<xs:sequence>
+			<xs:element ref="hltcore:HealthRequirementType"/>
+			<xs:element ref="hltcore:CachedCreatedTimestamp"/>
+			<xs:element ref="hltcore:HealthRequirementStatusCode"/>
+			<xs:element ref="hltcore:CachedStatusTimestamp"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="registerHealthCaseVisaContextType">
+		<xs:sequence>
+			<xs:element ref="hltcore:HealthVisaContextType"/>
+			<xs:element ref="hltcore:HealthVisaContextValue"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

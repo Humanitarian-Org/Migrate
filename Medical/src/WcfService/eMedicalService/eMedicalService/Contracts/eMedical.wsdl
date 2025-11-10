@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:v2="http://www.immi.gov.au/Namespace/Health/Service/V2.0" xmlns:v1="http://www.immi.gov.au/Namespace/Health/Service/V1.0" xmlns:tns="urn:iom.org/mimosa/medical/aus/v1" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns9="http://www.immi.gov.au/Namespace/Enterprise/InformationMessages/V1.0" xmlns:ns8="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" xmlns:ns7="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" xmlns:ns6="http://www.immi.gov.au/Namespace/Document/Core/V1.0" xmlns:ns5="http://www.immi.gov.au/Namespace/Departmental/Core/V1.0" xmlns:ns4="http://www.immi.gov.au/Namespace/Correspondence/Core/V1.0" xmlns:ns3="http://www.immi.gov.au/Namespace/Casemanagement/Core/V1.0" xmlns:ns2="http://www.immi.gov.au/Namespace/BusinessContext/Core/V1.0" xmlns:ns17="http://www.immi.gov.au/Namespace/ApplicationContext/Core/V1.0" xmlns:ns16="http://www.immi.gov.au/Namespace/Visa/Core/V1.0" xmlns:ns15="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" xmlns:ns14="http://www.immi.gov.au/Namespace/Party/Core/V1.0" xmlns:ns13="http://www.immi.gov.au/Namespace/InformationRecord/Core/V1.0" xmlns:ns12="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" xmlns:ns11="http://www.immi.gov.au/Namespace/Health/Core/V1.0" xmlns:ns10="http://www.immi.gov.au/Namespace/Enterprise/WarningMessages/V1.0" xmlns:ns1="http://www.immi.gov.au/Namespace/Address/Core/V1.0" xmlns:ns="http://www.immi.gov.au/Namespace/Activity/Core/V1.0" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:eam="http://www.immi.gov.au/Namespace/Enterprise/AcknowledgementMessage/V1.0" xmlns:e1="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" targetNamespace="urn:iom.org/mimosa/medical/aus/v1">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:v2="http://www.immi.gov.au/Namespace/Health/Service/V2.0" xmlns:v1="http://www.immi.gov.au/Namespace/Health/Service/V1.0" xmlns:tns="urn:iom.org/mimosa/medical/aus/v1" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns9="http://www.immi.gov.au/Namespace/Enterprise/InformationMessages/V1.0" xmlns:ns8="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" xmlns:ns7="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" xmlns:ns6="http://www.immi.gov.au/Namespace/Document/Core/V1.0" xmlns:ns5="http://www.immi.gov.au/Namespace/Departmental/Core/V1.0" xmlns:ns4="http://www.immi.gov.au/Namespace/Correspondence/Core/V1.0" xmlns:ns3="http://www.immi.gov.au/Namespace/Casemanagement/Core/V1.0" xmlns:ns2="http://www.immi.gov.au/Namespace/BusinessContext/Core/V1.0" xmlns:ns17="http://www.immi.gov.au/Namespace/ApplicationContext/Core/V1.0" xmlns:ns16="http://www.immi.gov.au/Namespace/Visa/Core/V1.0" xmlns:ns15="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" xmlns:ns14="http://www.immi.gov.au/Namespace/Party/Core/V1.0" xmlns:ns13="http://www.immi.gov.au/Namespace/InformationRecord/Core/V1.0" xmlns:ns12="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" xmlns:ns11="http://www.immi.gov.au/Namespace/Health/Core/V1.0" xmlns:ns10="http://www.immi.gov.au/Namespace/Enterprise/WarningMessages/V1.0" xmlns:ns1="http://www.immi.gov.au/Namespace/Address/Core/V1.0" xmlns:ns="http://www.immi.gov.au/Namespace/Activity/Core/V1.0" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:eam="http://www.immi.gov.au/Namespace/Enterprise/AcknowledgementMessage/V1.0" xmlns:e1="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" elementFormDefault="qualified" targetNamespace="urn:iom.org/mimosa/medical/aus/v1">
+			<!-- put request/response references here -->
+			<!-- SV 445-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V2.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/RegisterHealthCaseRequest.xsd"/>
+			<!-- SV 441-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/NotifyMedicalExaminationStatusRequest.xsd"/>
+			<!-- SV 464-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/NotifyCachedHealthRequirementsUpdateRequest.xsd"/>
+			<!-- SV 439 -->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/DeleteCachedHealthCaseRequest.xsd"/>
+			<!-- SV 440-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/RegisterMedicalExaminationsResultsRequest.xsd"/>
+			<!-- SV 463-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/NotifyCachedHealthClientDetailsUpdateRequest.xsd"/>
+			<!-- SV 463 response-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/NotifyCachedHealthClientDetailsUpdateResponse.xsd"/>
+			<!-- Acknowledment -->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/AcknowledgementMessage/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/EnterpriseAcknowledgement.xsd"/>
+			<!-- error messages-->
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/SystemErrors.xsd"/>
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/ValidationErrors.xsd"/>
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/SecurityErrors.xsd"/>
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/LogicErrors.xsd"/>
+			
+  <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/EnterpriseErrors.xsd"/>
+		
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="NotifyMedicalExaminationStatusInput">
+    <wsdl:part element="v1:NotifyMedicalExaminationStatusRequest" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterHealthCaseOutput">
+    <wsdl:part element="eam:AcknowledgementMessage" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCachedHealthCaseInput">
+    <wsdl:part element="v1:DeleteCachedHealthCaseRequest" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotifyMedicalExaminationStatusOutput">
+    <wsdl:part element="eam:AcknowledgementMessage" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCachedHealthCaseOutput">
+    <wsdl:part element="eam:AcknowledgementMessage" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterHealthCaseEnterpriseErrors">
+    <wsdl:part element="ns8:EnterpriseErrors" name="fault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotifyCachedHealthClientDetailsUpdateResponseInput">
+    <wsdl:part element="v1:NotifyCachedHealthClientDetailsUpdateResponse" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCachedHealthCaseEnterpriseErrors">
+    <wsdl:part element="ns8:EnterpriseErrors" name="fault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotifyMedicalExaminationStatusEnterpriseErrors">
+    <wsdl:part element="ns8:EnterpriseErrors" name="fault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterMedicalExaminationsResultsInput">
+    <wsdl:part element="v1:RegisterMedicalExaminationsResultsRequest" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterMedicalExaminationsResultsOutput">
+    <wsdl:part element="eam:AcknowledgementMessage" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors">
+    <wsdl:part element="ns8:EnterpriseErrors" name="fault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterHealthCaseInput">
+    <wsdl:part element="v2:RegisterHealthCaseRequest" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotifyCachedHealthClientDetailsUpdateResponseOutput">
+    <wsdl:part element="eam:AcknowledgementMessage" name="parameter">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegisterMedicalExaminationsResultsEnterpriseErrors">
+    <wsdl:part element="ns8:EnterpriseErrors" name="fault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="eMedicalPortType">
+    <wsdl:operation name="RegisterHealthCase">
+      <wsdl:input message="tns:RegisterHealthCaseInput">
+    </wsdl:input>
+      <wsdl:output message="tns:RegisterHealthCaseOutput">
+    </wsdl:output>
+      <wsdl:fault message="tns:RegisterHealthCaseEnterpriseErrors" name="RegisterHealthCaseEnterpriseErrors">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMedicalExaminationStatus">
+      <wsdl:input message="tns:NotifyMedicalExaminationStatusInput">
+    </wsdl:input>
+      <wsdl:output message="tns:NotifyMedicalExaminationStatusOutput">
+    </wsdl:output>
+      <wsdl:fault message="tns:NotifyMedicalExaminationStatusEnterpriseErrors" name="NotifyMedicalExaminationStatusEnterpriseErrors">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCachedHealthCase">
+      <wsdl:input message="tns:DeleteCachedHealthCaseInput">
+    </wsdl:input>
+      <wsdl:output message="tns:DeleteCachedHealthCaseOutput">
+    </wsdl:output>
+      <wsdl:fault message="tns:DeleteCachedHealthCaseEnterpriseErrors" name="DeleteCachedHealthCaseEnterpriseErrors">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterMedicalExaminationsResults">
+      <wsdl:input message="tns:RegisterMedicalExaminationsResultsInput">
+    </wsdl:input>
+      <wsdl:output message="tns:RegisterMedicalExaminationsResultsOutput">
+    </wsdl:output>
+      <wsdl:fault message="tns:RegisterMedicalExaminationsResultsEnterpriseErrors" name="RegisterMedicalExaminationsResultsEnterpriseErrors">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyCachedHealthClientDetailsUpdateResponse">
+      <wsdl:input message="tns:NotifyCachedHealthClientDetailsUpdateResponseInput">
+    </wsdl:input>
+      <wsdl:output message="tns:NotifyCachedHealthClientDetailsUpdateResponseOutput">
+    </wsdl:output>
+      <wsdl:fault message="tns:NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors" name="NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eMedicalSoapBinding12" type="tns:eMedicalPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RegisterHealthCase">
+      <soap12:operation soapAction="a" soapActionRequired="false"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:output>
+      <wsdl:fault name="RegisterHealthCaseEnterpriseErrors">
+        <soap12:fault name="RegisterHealthCaseEnterpriseErrors" use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMedicalExaminationStatus">
+      <soap12:operation soapAction="a" soapActionRequired="false"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:output>
+      <wsdl:fault name="NotifyMedicalExaminationStatusEnterpriseErrors">
+        <soap12:fault name="NotifyMedicalExaminationStatusEnterpriseErrors" use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCachedHealthCase">
+      <soap12:operation soapAction="a" soapActionRequired="false"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:output>
+      <wsdl:fault name="DeleteCachedHealthCaseEnterpriseErrors">
+        <soap12:fault name="DeleteCachedHealthCaseEnterpriseErrors" use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterMedicalExaminationsResults">
+      <soap12:operation soapAction="a" soapActionRequired="false"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:output>
+      <wsdl:fault name="RegisterMedicalExaminationsResultsEnterpriseErrors">
+        <soap12:fault name="RegisterMedicalExaminationsResultsEnterpriseErrors" use="literal"/>
+    <wsp:PolicyReference URI="#ResponsePolicy"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyCachedHealthClientDetailsUpdateResponse">
+      <soap12:operation soapAction="a" soapActionRequired="false"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors">
+        <soap12:fault name="NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eMedicalSoapBinding" type="tns:eMedicalPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RegisterHealthCase">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RegisterHealthCaseEnterpriseErrors">
+        <soap:fault name="RegisterHealthCaseEnterpriseErrors" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMedicalExaminationStatus">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="NotifyMedicalExaminationStatusEnterpriseErrors">
+        <soap:fault name="NotifyMedicalExaminationStatusEnterpriseErrors" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCachedHealthCase">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DeleteCachedHealthCaseEnterpriseErrors">
+        <soap:fault name="DeleteCachedHealthCaseEnterpriseErrors" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterMedicalExaminationsResults">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RegisterMedicalExaminationsResultsEnterpriseErrors">
+        <soap:fault name="RegisterMedicalExaminationsResultsEnterpriseErrors" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyCachedHealthClientDetailsUpdateResponse">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors">
+        <soap:fault name="NotifyCachedHealthClientDetailsUpdateResponseEnterpriseErrors" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eMedicalService">
+    <wsdl:port binding="tns:eMedicalSoapBinding" name="eMedicalPort">
+      <soap:address location="http://localhost:7001/iom/eMedicalService"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:eMedicalSoapBinding12" name="eMedicalPort12">
+      <soap12:address location="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12"/>
+    </wsdl:port>
+  </wsdl:service>
+    <wsp:Policy wsu:Id="RequestPolicy">
+		<wsp:PolicyReference URI="#MutualSecurityPolicy"/>
+		<wsp:PolicyReference URI="#RequestAddressingPolicy"/>
+	</wsp:Policy>
+    <wsp:Policy wsu:Id="ResponsePolicy">
+		<wsp:PolicyReference URI="#MutualSecurityPolicy"/>
+		<wsp:PolicyReference URI="#ResponseAddressingPolicy"/>
+	</wsp:Policy>
+    <wsp:Policy wsu:Id="MutualSecurityPolicy">
+		<wsp:All>
+			<!-- Mandatory inclusion of signed WS-Security Timestamp -->
+			<sp:IncludeTimestamp/>
+			<sp:RequiredElements>
+				<!-- wsu:Timestamp -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() = 'Security' and
+					namespace-uri() =
+					'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd']/*[local-name()
+					= 'Timestamp' and namespace-uri()
+					='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd']</sp:XPath>
+			</sp:RequiredElements>
+			<!-- Digital Signature of soap:Body -->
+			<sp:SignedParts>
+				<sp:Body/>
+			</sp:SignedParts>
+			<!-- X509 Certificate -->
+			<sp:SupportingTokens>
+				<sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/Always">
+					<wsp:Policy>
+						<sp:WssX509V3Token11/>
+					</wsp:Policy>
+				</sp:X509Token>
+			</sp:SupportingTokens>
+		</wsp:All>
+	</wsp:Policy>
+    <wsp:Policy wsu:Id="RequestAddressingPolicy">
+		<wsp:All>
+			<sp:RequiredElements>
+				<!-- wsa:MessageID -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() = 'MessageID' and
+					namespace-uri() = 'http://www.w3.org/2005/08/addressing'][1]</sp:XPath>
+			</sp:RequiredElements>
+			<sp:RequiredElements>
+				<!-- wsa:Action -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() = 'Action' and
+					namespace-uri() = 'http://www.w3.org/2005/08/addressing'][1]</sp:XPath>
+			</sp:RequiredElements>
+			<sp:RequiredElements>
+				<!-- 'TransactionId' as a 'ReplyTo' reference parameter -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() =
+					'ReplyTo']/*[local-name() = 'ReferenceParameters']/*[local-name() = 'TransactionId' and
+					namespace-uri() = 'http://www.immi.gov.au/Namespace/Enterprise/Messaging/V1.0'][1]</sp:XPath>
+			</sp:RequiredElements>
+		</wsp:All>
+	</wsp:Policy>
+    <wsp:Policy wsu:Id="ResponseAddressingPolicy">
+		<wsp:All>
+			<sp:RequiredElements>
+				<!-- wsa:MessageID -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() = 'MessageID' and
+					namespace-uri() = 'http://www.w3.org/2005/08/addressing'][1]</sp:XPath>
+			</sp:RequiredElements>
+			<sp:RequiredElements>
+				<!-- wsa:Action -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() = 'Action' and
+					namespace-uri() = 'http://www.w3.org/2005/08/addressing'][1]</sp:XPath>
+			</sp:RequiredElements>
+			<sp:RequiredElements>
+				<!-- wsa:RelatesTo -->
+				<sp:XPath>/*[local-name() = 'Envelope']/*[local-name() = 'Header']/*[local-name() = 'RelatesTo' and
+					namespace-uri() = 'http://www.w3.org/2005/08/addressing'][1]</sp:XPath>
+			</sp:RequiredElements>
+		</wsp:All>
+	</wsp:Policy>
+</wsdl:definitions>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ewm="http://www.immi.gov.au/Namespace/Enterprise/WarningMessages/V1.0" xmlns:errcore="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" xmlns:eim="http://www.immi.gov.au/Namespace/Enterprise/InformationMessages/V1.0" xmlns:eam="http://www.immi.gov.au/Namespace/Enterprise/AcknowledgementMessage/V1.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.immi.gov.au/Namespace/Enterprise/AcknowledgementMessage/V1.0" version="0.1">
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/InformationMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/InformationMessages.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/WarningMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/WarningMessages.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/ErrorMessagesCore.xsd"/>
+   <xs:annotation>
+      <xs:appinfo xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <dc:creator>Enrico Raymundo</dc:creator>
+         <dc:date>2010-02-05</dc:date>
+         <dc:title>Enterprise Acknowledgement Schema</dc:title>
+         <dc:subject>Schema definition of Enterprise Acknowledgement Components for acknowledginf
+				receipt of message.</dc:subject>
+         <dc:contributor>Enrico Raymundo</dc:contributor>
+         <dc:publisher>DIAC</dc:publisher>
+      </xs:appinfo>
+   </xs:annotation>
+   <!--
+	========================================================================
+	Note:
+	
+	To prevent from importing EntepriseCore.xsd in order to re-use
+	ecore:Acknowledgement, eam:Acknowledgment and its type
+	"eam:acknowledgementType" are local to this schema! Also avoided extending
+	ecore:serviceResponseType to reuse eim:Informations and ewm:Warnings,
+	so structures are referenced here
+	=========================================================================
+	--><!--
+	=========================================================================
+	History:
+	
+	2010-02-05	v0.1	Enrico Raymundo		Initial Version.
+	2010-02-08  	v0.2	Enrico Raymundo     	1. Changed root element from:
+							   "Acknowledgement" to "AcknowledgementMessage"
+							2. Changed "AcknowledgementText" to "Acknowledgement"
+							3. Changed "eack:" NS prefix from "eam:"
+							4. Changed targetNamespace from:
+							    "......./Enterprise/Acknowledgement/V1.0"
+							    to:
+							    "......./Enterprise/AcknowledgementMessage/V1.0
+	========================================================================
+	--><!--
+		=================================================================
+		Global Elements
+		=================================================================
+	--><xs:element name="AcknowledgementMessage" type="eam:acknowledgementMessageType"/>
+   <xs:element name="Acknowledgement" type="eam:acknowledgementType"/>
+   <!--
+		=================================================================
+		Global Complex Types
+		=================================================================
+	--><xs:complexType name="acknowledgementMessageType">
+      <xs:sequence>
+         <xs:element minOccurs="0" ref="eim:Informations"/>
+         <xs:element minOccurs="0" ref="ewm:Warnings"/>
+         <xs:element ref="eam:Acknowledgement"/>
+      </xs:sequence>
+   </xs:complexType>
+   <!--
+		=================================================================
+		Global Simple Types
+		=================================================================
+	--><xs:simpleType name="acknowledgementType">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="SUCCESS"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

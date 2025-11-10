@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ptycore="http://www.immi.gov.au/Namespace/Party/Core/V1.0" xmlns:pidcore="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" xmlns:hltmsg="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" xmlns:hltcore="http://www.immi.gov.au/Namespace/Health/Core/V1.0" xmlns:hlt="http://www.immi.gov.au/Namespace/Health/Service/V1.0" xmlns:ecore="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" xmlns:ctx="http://www.immi.gov.au/Namespace/ApplicationContext/Core/V1.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" version="1.0" xml:lang="en">
+   <xs:import namespace="http://www.immi.gov.au/Namespace/ApplicationContext/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/ApplicationContextCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/EnterpriseCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthMessaging.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Party/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/PartyCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/PersonIdentityCore.xsd"/>
+   <xs:element name="NotifyMedicalExaminationStatusRequest" type="hlt:notifyMedicalExaminationStatusRequestType"/>
+   <xs:complexType name="healthCaseStatusUpdateType">
+      <xs:sequence>
+         <xs:element ref="ecore:Status"/>
+         <xs:element minOccurs="0" ref="hltcore:StatusTimestamp"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notifyMedicalExaminationStatusRequestExaminationType">
+      <xs:sequence>
+         <xs:element ref="hltcore:ExaminationStatus"/>
+         <xs:element ref="hltcore:CachedStatusTimestamp"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedExpectedDeliveryDate"/>
+         <xs:element minOccurs="0" ref="hltcore:ClinicID"/>
+         <xs:element ref="ecore:UserId"/>
+         <xs:element minOccurs="0" ref="ecore:UserName"/>
+         <xs:element minOccurs="0" ref="ecore:CommentText"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notifyMedicalExaminationStatusRequestHealthRequirementType">
+      <xs:sequence>
+         <xs:element ref="hltcore:HealthRequirementType"/>
+         <xs:element ref="hltcore:CachedCreatedTimestamp"/>
+         <xs:element ref="hltcore:HealthRequirementStatusCode"/>
+         <xs:element ref="hltcore:CachedStatusTimestamp"/>
+         <xs:element minOccurs="0" ref="hltmsg:HealthRequirementIdentifierMsg"/>
+         <xs:element name="NotifyMedicalExaminationStatusRequestExamination" type="hlt:notifyMedicalExaminationStatusRequestExaminationType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notifyMedicalExaminationStatusRequestType">
+      <xs:sequence>
+         <xs:element ref="hltcore:CorrelationID"/>
+         <xs:element maxOccurs="unbounded" ref="hltmsg:HealthCaseIdentifierMsg"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedCreationDate"/>
+         <xs:choice>
+            <xs:element name="NotifyMedicalStatusRequestHealthClientContext" type="hlt:notifyMedicalStatusRequestHealthClientContextType"/>
+            <xs:element name="HealthCaseStatusUpdate" type="hlt:healthCaseStatusUpdateType"/>
+            <xs:element name="NotifyMedicalExaminationStatusRequestHealthRequirement" type="hlt:notifyMedicalExaminationStatusRequestHealthRequirementType"/>
+         </xs:choice>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="notifyMedicalStatusRequestHealthClientContextType">
+      <xs:sequence>
+         <xs:element minOccurs="0" ref="ecore:Title"/>
+         <xs:element minOccurs="0" ref="ecore:GivenName"/>
+         <xs:element ref="ecore:FamilyName"/>
+         <xs:element ref="pidcore:SexType"/>
+         <xs:element ref="hltcore:CachedBirthYear"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedBirthMonth"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedBirthDay"/>
+         <xs:element minOccurs="0" ref="pidcore:BirthCountryCode"/>
+         <xs:element minOccurs="0" ref="ptycore:RelationshipToPrimaryApplicant"/>
+         <xs:element minOccurs="0" ref="hltmsg:HealthIdentityDocumentMsg"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

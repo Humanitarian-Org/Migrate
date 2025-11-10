@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Header>
+      <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">RegisterHealthCaseResponse</wsa:Action>
+      <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">response-message-001</wsa:MessageID>
+      <wsa:RelatesTo xmlns:wsa="http://www.w3.org/2005/08/addressing">sample-message-001</wsa:RelatesTo>
+   </soap:Header>
+   <soap:Body>
+      <AcknowledgementMessage xmlns="http://www.immi.gov.au/Namespace/Enterprise/AcknowledgementMessage/V1.0">
+         <Informations xmlns="http://www.immi.gov.au/Namespace/Enterprise/InformationMessages/V1.0">
+            <Information>
+               <Code>INFO_001</Code>
+               <Description>Health case registration request received successfully</Description>
+               <Timestamp>2025-11-10T10:20:00Z</Timestamp>
+            </Information>
+            <Information>
+               <Code>INFO_002</Code>
+               <Description>Case assigned ID: U000010002</Description>
+               <Timestamp>2025-11-10T10:20:01Z</Timestamp>
+            </Information>
+         </Informations>
+         <Warnings xmlns="http://www.immi.gov.au/Namespace/Enterprise/WarningMessages/V1.0">
+            <Warning>
+               <Code>WARN_001</Code>
+               <Description>Document expiry date is within 6 months</Description>
+               <Timestamp>2025-11-10T10:20:02Z</Timestamp>
+            </Warning>
+         </Warnings>
+         <Acknowledgement>SUCCESS</Acknowledgement>
+      </AcknowledgementMessage>
+   </soap:Body>
+</soap:Envelope>

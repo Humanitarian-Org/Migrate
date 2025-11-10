@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap12:mustUnderstand="1">
+         <wsu:Timestamp wsu:Id="Timestamp-sample-003">
+            <wsu:Created>2025-11-10T10:15:01Z</wsu:Created>
+            <wsu:Expires>2025-11-10T10:22:01Z</wsu:Expires>
+         </wsu:Timestamp>
+         <wsse:BinarySecurityToken wsu:Id="SecurityToken-sample-003" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3">SAMPLE_CERTIFICATE_BASE64_ENCODED</wsse:BinarySecurityToken>
+      </wsse:Security>
+      <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-action-003">DeleteCachedHealthCase</wsa:Action>
+      <wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-messageid-003">sample-message-003</wsa:MessageID>
+      <wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-to-003">http://localhost:55766/eMedicalIntegrationService.svc</wsa:To>
+      <wsa:ReplyTo xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Header-replyto-003">
+         <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+      </wsa:ReplyTo>
+   </soap:Header>
+   <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SoapBody-sample-003">
+      <DeleteCachedHealthCaseRequest xmlns="http://www.immi.gov.au/Namespace/Health/Service/V1.0">
+         <CorrelationID xmlns="http://www.immi.gov.au/Namespace/Health/Core/V1.0">100000000000000003</CorrelationID>
+         <CacheHealthCaseDetails>
+            <HealthCaseIdentifierMsg xmlns="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+               <HealthCaseIdentifier xmlns="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+                  <HealthCaseIdentifierValue>U000010002</HealthCaseIdentifierValue>
+                  <HealthCaseIdentifierType>UMI</HealthCaseIdentifierType>
+               </HealthCaseIdentifier>
+            </HealthCaseIdentifierMsg>
+            <HealthCaseIdentifierMsg xmlns="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+               <HealthCaseIdentifier xmlns="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+                  <HealthCaseIdentifierValue>40033127</HealthCaseIdentifierValue>
+                  <HealthCaseIdentifierType>IME</HealthCaseIdentifierType>
+               </HealthCaseIdentifier>
+            </HealthCaseIdentifierMsg>
+            <HealthCaseIdentifierMsg xmlns="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0">
+               <HealthCaseIdentifier xmlns="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+                  <HealthCaseIdentifierValue>9191</HealthCaseIdentifierValue>
+                  <HealthCaseIdentifierType>IOMGID</HealthCaseIdentifierType>
+               </HealthCaseIdentifier>
+            </HealthCaseIdentifierMsg>
+         </CacheHealthCaseDetails>
+         <DeletionReason>Case completed and archived</DeletionReason>
+         <RequestedBy>
+            <UserId>admin_user_001</UserId>
+            <UserName>System Administrator</UserName>
+            <Organization>IOM Medical Services</Organization>
+         </RequestedBy>
+         <CachedDeletionDate xmlns="http://www.immi.gov.au/Namespace/Health/Core/V1.0">
+            <UnstructuredYear xmlns="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">2025</UnstructuredYear>
+            <UnstructuredMonth xmlns="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">11</UnstructuredMonth>
+            <UnstructuredDay xmlns="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">10</UnstructuredDay>
+            <UnstructuredHour xmlns="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">10</UnstructuredHour>
+            <UnstructuredMinute xmlns="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">45</UnstructuredMinute>
+            <UnstructuredSecond xmlns="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0">30</UnstructuredSecond>
+         </CachedDeletionDate>
+      </DeleteCachedHealthCaseRequest>
+   </soap:Body>
+</soap:Envelope>

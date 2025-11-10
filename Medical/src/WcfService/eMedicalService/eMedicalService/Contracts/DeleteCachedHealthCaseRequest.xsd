@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:hltmsg="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" xmlns:hltcore="http://www.immi.gov.au/Namespace/Health/Core/V1.0" xmlns:hlt="http://www.immi.gov.au/Namespace/Health/Service/V1.0" elementFormDefault="qualified" targetNamespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" version="1.0" xml:lang="en">
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthMessaging.xsd"/>
+   <xs:element name="DeleteCachedHealthCaseRequest" type="hlt:deleteCachedHealthCaseRequestType"/>
+   <xs:complexType name="deleteCachedHealthCaseRequestType">
+      <xs:sequence>
+         <xs:element ref="hltcore:CorrelationID"/>
+         <xs:element maxOccurs="unbounded" ref="hltmsg:HealthCaseIdentifierMsg"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

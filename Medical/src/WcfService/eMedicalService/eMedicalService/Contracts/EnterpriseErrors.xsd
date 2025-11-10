@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:errcore="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" elementFormDefault="qualified" targetNamespace="http://www.immi.gov.au/Namespace/Enterprise/ErrorMessages/V1.0" version="1.0" xml:lang="en">
+   <xs:include schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/ValidationErrors.xsd"/>
+   <xs:include schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/LogicErrors.xsd"/>
+   <xs:include schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/SystemErrors.xsd"/>
+   <xs:include schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/SecurityErrors.xsd"/>
+   <xs:complexType name="enterpriseErrorsType">
+      <xs:choice>
+         <xs:sequence>
+            <xs:element ref="errcore:SecurityErrors"/>
+            <xs:element minOccurs="0" ref="errcore:SystemErrors"/>
+            <xs:element minOccurs="0" ref="errcore:LogicErrors"/>
+            <xs:element minOccurs="0" ref="errcore:ValidationErrors"/>
+         </xs:sequence>
+         <xs:sequence>
+            <xs:element ref="errcore:SystemErrors"/>
+            <xs:element minOccurs="0" ref="errcore:LogicErrors"/>
+            <xs:element minOccurs="0" ref="errcore:ValidationErrors"/>
+         </xs:sequence>
+         <xs:sequence>
+            <xs:element ref="errcore:LogicErrors"/>
+            <xs:element minOccurs="0" ref="errcore:ValidationErrors"/>
+         </xs:sequence>
+         <xs:element ref="errcore:ValidationErrors"/>
+      </xs:choice>
+   </xs:complexType>
+   <xs:element name="EnterpriseErrors" type="errcore:enterpriseErrorsType"/>
+</xs:schema>

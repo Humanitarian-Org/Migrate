@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pidcore="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" xmlns:hltmsg="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" xmlns:hltcore="http://www.immi.gov.au/Namespace/Health/Core/V1.0" xmlns:hlt="http://www.immi.gov.au/Namespace/Health/Service/V1.0" xmlns:ecore="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" xmlns:doccore="http://www.immi.gov.au/Namespace/Document/Core/V1.0" elementFormDefault="qualified" targetNamespace="http://www.immi.gov.au/Namespace/Health/Service/V1.0" version="1.0" xml:lang="en">
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Document/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/DocumentCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/EnterpriseCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthCore.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/HealthMessaging.xsd"/>
+   <xs:import namespace="http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0" schemaLocation="https://api-test.iom.int/eMedicalInterface/services/eMedicalPort12?xsd=xsd/PersonIdentityCore.xsd"/>
+   <xs:element name="RegisterMedicalExaminationsResultsRequest" type="hlt:registerMedicalExaminationsResultsRequestType"/>
+   <xs:complexType name="examUpdatedType">
+      <xs:sequence>
+         <xs:element ref="hltcore:CachedCreatedTimestamp"/>
+         <xs:element ref="ecore:CreateUserId"/>
+         <xs:element ref="ecore:CreateUsername"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="healthCaseDetailFormType">
+      <xs:sequence>
+         <xs:element ref="hltmsg:HealthFormMsg"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="proxySubmittingUserType">
+      <xs:sequence>
+         <xs:element ref="ecore:UserId"/>
+         <xs:element ref="ecore:UserName"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerMedicalExaminationsResultsRequestExaminationType">
+      <xs:sequence>
+         <xs:element ref="hltcore:CachedCreatedTimestamp"/>
+         <xs:element ref="ecore:CreateUserId"/>
+         <xs:element ref="ecore:CreateUsername"/>
+         <xs:element minOccurs="0" ref="ecore:CountryCode"/>
+         <xs:element minOccurs="0" ref="hltcore:ClinicID"/>
+         <xs:element minOccurs="0" name="ExamUpdated" type="hlt:examUpdatedType"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedEffectiveStartDate"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedEffectiveEndDate"/>
+         <xs:element minOccurs="0" ref="hltcore:ExaminationManuallyReceivedFlag"/>
+         <xs:element minOccurs="0" ref="hltcore:DeclarationFlag"/>
+         <xs:element minOccurs="0" ref="hltcore:ExaminationGrading"/>
+         <xs:element minOccurs="0" ref="hltcore:GradingPractitionerID"/>
+         <xs:element minOccurs="0" ref="ecore:CommentText"/>
+         <xs:element minOccurs="0" ref="hltcore:PractitionerID"/>
+         <xs:element minOccurs="0" ref="hltcore:ExaminationStatusReason"/>
+         <xs:element minOccurs="0" ref="hltcore:ExaminationStatusComment"/>
+         <xs:element minOccurs="0" name="ProxySubmittingUser" type="hlt:proxySubmittingUserType"/>
+         <xs:element minOccurs="0" ref="hltmsg:HealthReferralMsg"/>
+         <xs:element minOccurs="0" name="RegisterMedicalExaminationsResultsRequestIdentityDocument" type="hlt:registerMedicalExaminationsResultsRequestIdentityDocumentType"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="hltmsg:HealthCaseAttachmentMsg"/>
+         <xs:element minOccurs="0" ref="hltmsg:HealthFormMsg"/>
+         <xs:element minOccurs="0" ref="hltmsg:HealthMedicalHistoryMsg"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerMedicalExaminationsResultsRequestHealthRequirementType">
+      <xs:sequence>
+         <xs:element ref="hltmsg:HealthRequirementMsg"/>
+         <xs:element minOccurs="0" ref="hltmsg:HealthRequirementIdentifierMsg"/>
+         <xs:element name="RegisterMedicalExaminationsResultsRequestExamination" type="hlt:registerMedicalExaminationsResultsRequestExaminationType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerMedicalExaminationsResultsRequestIdentityDocumentType">
+      <xs:sequence>
+         <xs:element minOccurs="0" ref="doccore:DocumentTypeCode"/>
+         <xs:element minOccurs="0" ref="doccore:DocumentType"/>
+         <xs:element ref="doccore:DocumentNumber"/>
+         <xs:element ref="doccore:IssuingCountryName"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedIssueDate"/>
+         <xs:element minOccurs="0" ref="hltcore:CachedExpiryDate"/>
+         <xs:element minOccurs="0" ref="hltcore:IdentityDocumentedPresentedFlag"/>
+         <xs:element minOccurs="0" ref="hltcore:IdentityConcernsFlag"/>
+         <xs:element minOccurs="0" ref="pidcore:IdentityConcernsComment"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="registerMedicalExaminationsResultsRequestType">
+      <xs:sequence>
+         <xs:element ref="hltcore:CorrelationID"/>
+         <xs:element maxOccurs="unbounded" ref="hltmsg:HealthCaseIdentifierMsg"/>
+         <xs:element minOccurs="0" name="RegisterMedicalExaminationsResultsRequestIdentityDocument" type="hlt:registerMedicalExaminationsResultsRequestIdentityDocumentType"/>
+         <xs:element ref="hltmsg:HealthFacialImageMsg"/>
+         <xs:element minOccurs="0" name="HealthCaseDetailForm" type="hlt:healthCaseDetailFormType"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" ref="hltmsg:HealthCaseAttachmentMsg"/>
+         <xs:element maxOccurs="unbounded" name="RegisterMedicalExaminationsResultsRequestHealthRequirement" type="hlt:registerMedicalExaminationsResultsRequestHealthRequirementType"/>
+         <xs:element minOccurs="0" ref="hltcore:ProcessingUnit"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>
