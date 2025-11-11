@@ -22,6 +22,38 @@ namespace eMedicalService
         [OperationContract(Action = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/RegisterHealthCaseRequest",
                            ReplyAction = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/RegisterHealthCaseResponse")]
         RegisterHealthCaseResponseMessage RegisterHealthCaseRequest(RegisterHealthCaseRequestMessage request);
+
+        /// <summary>
+        /// Notifies the system of a medical examination status change
+        /// SOAP Action: http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyMedicalExaminationStatusRequest
+        /// </summary>
+        [OperationContract(Action = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyMedicalExaminationStatusRequest",
+                           ReplyAction = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyMedicalExaminationStatusResponse")]
+        NotifyMedicalExaminationStatusResponseMessage NotifyMedicalExaminationStatusRequest(NotifyMedicalExaminationStatusRequestMessage request);
+
+        /// <summary>
+        /// Registers medical examination results for a health case  
+        /// SOAP Action: http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/RegisterMedicalExaminationsResultsRequest
+        /// </summary>
+        [OperationContract(Action = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/RegisterMedicalExaminationsResultsRequest",
+                           ReplyAction = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/RegisterMedicalExaminationsResultsResponse")]
+        RegisterMedicalExaminationsResultsResponseMessage RegisterMedicalExaminationsResultsRequest(RegisterMedicalExaminationsResultsRequestMessage request);
+
+        /// <summary>
+        /// Deletes a cached health case from the system
+        /// SOAP Action: http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/DeleteCachedHealthCaseRequest
+        /// </summary>
+        [OperationContract(Action = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/DeleteCachedHealthCaseRequest",
+                           ReplyAction = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/DeleteCachedHealthCaseResponse")]
+        DeleteCachedHealthCaseResponseMessage DeleteCachedHealthCaseRequest(DeleteCachedHealthCaseRequestMessage request);
+
+        /// <summary>
+        /// Notifies cached health client details update
+        /// SOAP Action: http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyCachedHealthClientDetailsUpdateResponse
+        /// </summary>
+        [OperationContract(Action = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyCachedHealthClientDetailsUpdateResponse",
+                           ReplyAction = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1/HealthCase_Ext_PortType_V1_0/NotifyCachedHealthClientDetailsUpdateAcknowledgement")]
+        AcknowledgementResponseMessage NotifyCachedHealthClientDetailsUpdateResponse(NotifyCachedHealthClientDetailsUpdateRequestMessage request);
     }
 
     // Request/Response Message Contracts based on sample XML
@@ -38,6 +70,70 @@ namespace eMedicalService
     {
         [MessageBodyMember(Name = "RegisterHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
         public RegisterHealthCaseResponseType Body;
+    }
+
+    // NotifyMedicalExaminationStatus Message Contracts
+
+    [MessageContract(IsWrapped = false)]
+    public class NotifyMedicalExaminationStatusRequestMessage
+    {
+        [MessageBodyMember(Name = "NotifyMedicalExaminationStatusRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public NotifyMedicalExaminationStatusRequestType Body;
+    }
+
+    [MessageContract(IsWrapped = false)]
+    public class NotifyMedicalExaminationStatusResponseMessage
+    {
+        [MessageBodyMember(Name = "NotifyMedicalExaminationStatusResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public NotifyMedicalExaminationStatusResponseType Body;
+    }
+
+    // RegisterMedicalExaminationsResults Message Contracts
+
+    [MessageContract(IsWrapped = false)]
+    public class RegisterMedicalExaminationsResultsRequestMessage
+    {
+        [MessageBodyMember(Name = "RegisterMedicalExaminationsResultsRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public RegisterMedicalExaminationsResultsRequestType Body;
+    }
+
+    [MessageContract(IsWrapped = false)]
+    public class RegisterMedicalExaminationsResultsResponseMessage
+    {
+        [MessageBodyMember(Name = "RegisterMedicalExaminationsResultsResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public RegisterMedicalExaminationsResultsResponseType Body;
+    }
+
+    // DeleteCachedHealthCase Message Contracts
+
+    [MessageContract(IsWrapped = false)]
+    public class DeleteCachedHealthCaseRequestMessage
+    {
+        [MessageBodyMember(Name = "DeleteCachedHealthCaseRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public DeleteCachedHealthCaseRequestType Body;
+    }
+
+    [MessageContract(IsWrapped = false)]
+    public class DeleteCachedHealthCaseResponseMessage
+    {
+        [MessageBodyMember(Name = "DeleteCachedHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public DeleteCachedHealthCaseResponseType Body;
+    }
+
+    // NotifyCachedHealthClientDetailsUpdate Message Contracts
+
+    [MessageContract(IsWrapped = false)]
+    public class NotifyCachedHealthClientDetailsUpdateRequestMessage
+    {
+        [MessageBodyMember(Name = "NotifyCachedHealthClientDetailsUpdateResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public NotifyCachedHealthClientDetailsUpdateRequestType Body;
+    }
+
+    [MessageContract(IsWrapped = false)]
+    public class AcknowledgementResponseMessage
+    {
+        [MessageBodyMember(Name = "AcknowledgementMessage", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+        public AcknowledgementMessageType Body;
     }
 
     // Data Contracts matching the sample XML structure
@@ -317,5 +413,251 @@ namespace eMedicalService
         [DataMember(Name = "CachedStatusTimestamp")]
         [XmlElement("CachedStatusTimestamp", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
         public CachedUnstructuredDateType CachedStatusTimestamp { get; set; }
+    }
+
+    // Data Contracts for NotifyMedicalExaminationStatus
+
+    [DataContract(Name = "NotifyMedicalExaminationStatusRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class NotifyMedicalExaminationStatusRequestType
+    {
+        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement("CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement("HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
+
+        [DataMember(Order = 2, Name = "ExaminationStatus")]
+        [XmlElement("ExaminationStatus", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string ExaminationStatus { get; set; }
+
+        [DataMember(Order = 3, Name = "StatusTimestamp")]
+        [XmlElement("StatusTimestamp", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType StatusTimestamp { get; set; }
+    }
+
+    [DataContract(Name = "NotifyMedicalExaminationStatusResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class NotifyMedicalExaminationStatusResponseType
+    {
+        [DataMember(Order = 0)]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1)]
+        public string ResponseCode { get; set; }
+
+        [DataMember(Order = 2)]
+        public string ResponseMessage { get; set; }
+
+        [DataMember(Order = 3)]
+        public DateTime ProcessedDateTime { get; set; }
+    }
+
+    // Data Contracts for RegisterMedicalExaminationsResults
+
+    [DataContract(Name = "RegisterMedicalExaminationsResultsRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class RegisterMedicalExaminationsResultsRequestType
+    {
+        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement("CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement("HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
+
+        [DataMember(Order = 2, Name = "RegisterMedicalExaminationsResultsRequestIdentityDocument")]
+        public RegisterMedicalExaminationsResultsRequestIdentityDocumentType RegisterMedicalExaminationsResultsRequestIdentityDocument { get; set; }
+
+        [DataMember(Order = 3, Name = "HealthFacialImageMsg")]
+        [XmlElement("HealthFacialImageMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthFacialImageMsgType HealthFacialImageMsg { get; set; }
+
+        [DataMember(Order = 4, Name = "HealthCaseDetailForm")]
+        public HealthCaseDetailFormType HealthCaseDetailForm { get; set; }
+
+        [DataMember(Order = 5, Name = "HealthCaseAttachmentMsg")]
+        [XmlElement("HealthCaseAttachmentMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthCaseAttachmentMsgType[] HealthCaseAttachmentMsg { get; set; }
+    }
+
+    [DataContract(Name = "RegisterMedicalExaminationsResultsResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class RegisterMedicalExaminationsResultsResponseType
+    {
+        [DataMember(Order = 0)]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1)]
+        public string ResultsRegistrationId { get; set; }
+
+        [DataMember(Order = 2)]
+        public DateTime ProcessedDateTime { get; set; }
+
+        [DataMember(Order = 3)]
+        public string ResponseCode { get; set; }
+
+        [DataMember(Order = 4)]
+        public string ResponseMessage { get; set; }
+    }
+
+    // Data Contracts for DeleteCachedHealthCase
+
+    [DataContract(Name = "DeleteCachedHealthCaseRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class DeleteCachedHealthCaseRequestType
+    {
+        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement("CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement("HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
+
+        [DataMember(Order = 2, Name = "DeletionReason")]
+        [XmlElement("DeletionReason", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string DeletionReason { get; set; }
+    }
+
+    [DataContract(Name = "DeleteCachedHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class DeleteCachedHealthCaseResponseType
+    {
+        [DataMember(Order = 0)]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1)]
+        public string ResponseCode { get; set; }
+
+        [DataMember(Order = 2)]
+        public string ResponseMessage { get; set; }
+
+        [DataMember(Order = 3)]
+        public DateTime ProcessedDateTime { get; set; }
+    }
+
+    // Data Contracts for NotifyCachedHealthClientDetailsUpdate
+
+    [DataContract(Name = "NotifyCachedHealthClientDetailsUpdateRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class NotifyCachedHealthClientDetailsUpdateRequestType
+    {
+        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement("CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement("HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
+
+        [DataMember(Order = 2, Name = "ClientDetails")]
+        public object ClientDetails { get; set; } // Placeholder - would need actual structure from XML samples
+    }
+
+    // Common Acknowledgement Message
+
+    [DataContract(Name = "AcknowledgementMessage", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class AcknowledgementMessageType
+    {
+        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement("CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string CorrelationID { get; set; }
+
+        [DataMember(Order = 1, Name = "AcknowledgementCode")]
+        [XmlElement("AcknowledgementCode", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string AcknowledgementCode { get; set; }
+
+        [DataMember(Order = 2, Name = "AcknowledgementText")]
+        [XmlElement("AcknowledgementText", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string AcknowledgementText { get; set; }
+
+        [DataMember(Order = 3, Name = "ProcessedDateTime")]
+        [XmlElement("ProcessedDateTime", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public DateTime ProcessedDateTime { get; set; }
+    }
+
+    // Additional Supporting Types for RegisterMedicalExaminationsResults
+
+    [DataContract(Name = "RegisterMedicalExaminationsResultsRequestIdentityDocument", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class RegisterMedicalExaminationsResultsRequestIdentityDocumentType
+    {
+        [DataMember(Name = "DocumentTypeCode")]
+        [XmlElement("DocumentTypeCode", Namespace = "http://www.immi.gov.au/Namespace/Document/Core/V1.0")]
+        public string DocumentTypeCode { get; set; }
+
+        [DataMember(Name = "DocumentNumber")]
+        [XmlElement("DocumentNumber", Namespace = "http://www.immi.gov.au/Namespace/Document/Core/V1.0")]
+        public string DocumentNumber { get; set; }
+
+        [DataMember(Name = "IssuingCountryName")]
+        [XmlElement("IssuingCountryName", Namespace = "http://www.immi.gov.au/Namespace/Document/Core/V1.0")]
+        public string IssuingCountryName { get; set; }
+
+        [DataMember(Name = "CachedIssueDate")]
+        [XmlElement("CachedIssueDate", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedIssueDate { get; set; }
+
+        [DataMember(Name = "CachedExpiryDate")]
+        [XmlElement("CachedExpiryDate", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedExpiryDate { get; set; }
+
+        [DataMember(Name = "IdentityDocumentedPresentedFlag")]
+        [XmlElement("IdentityDocumentedPresentedFlag", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public bool IdentityDocumentedPresentedFlag { get; set; }
+
+        [DataMember(Name = "IdentityConcernsFlag")]
+        [XmlElement("IdentityConcernsFlag", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public bool IdentityConcernsFlag { get; set; }
+    }
+
+    [DataContract(Name = "HealthFacialImageMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+    public class HealthFacialImageMsgType
+    {
+        [DataMember(Name = "HealthPhotoAttachedMsg")]
+        public HealthPhotoAttachedMsgType HealthPhotoAttachedMsg { get; set; }
+    }
+
+    [DataContract(Name = "HealthPhotoAttachedMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+    public class HealthPhotoAttachedMsgType
+    {
+        [DataMember(Name = "AttachmentType")]
+        public string AttachmentType { get; set; }
+
+        [DataMember(Name = "AttachmentName")]
+        public string AttachmentName { get; set; }
+
+        [DataMember(Name = "AttachmentContent")]
+        public byte[] AttachmentContent { get; set; }
+    }
+
+    [DataContract(Name = "HealthCaseDetailForm", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class HealthCaseDetailFormType
+    {
+        [DataMember(Name = "HealthFormMsg")]
+        [XmlElement("HealthFormMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthFormMsgType HealthFormMsg { get; set; }
+    }
+
+    [DataContract(Name = "HealthFormMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+    public class HealthFormMsgType
+    {
+        [DataMember(Name = "FormType")]
+        public string FormType { get; set; }
+
+        [DataMember(Name = "FormData")]
+        public object FormData { get; set; } // Placeholder - would need actual structure from XML samples
+    }
+
+    [DataContract(Name = "HealthCaseAttachmentMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+    public class HealthCaseAttachmentMsgType
+    {
+        [DataMember(Name = "AttachmentType")]
+        public string AttachmentType { get; set; }
+
+        [DataMember(Name = "AttachmentName")]
+        public string AttachmentName { get; set; }
+
+        [DataMember(Name = "AttachmentContent")]
+        public byte[] AttachmentContent { get; set; }
+
+        [DataMember(Name = "AttachmentDescription")]
+        public string AttachmentDescription { get; set; }
     }
 }

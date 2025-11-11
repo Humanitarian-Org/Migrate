@@ -64,7 +64,6 @@
     <None Include="Contracts\DeleteCachedHealthCaseRequest.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Contracts\eMedical.wsdl" />
     <None Include="Contracts\EnterpriseAcknowledgement.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -101,7 +100,6 @@
     <None Include="Contracts\ValidationErrors.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="eMedicalIntegrationService.svc" />
     <Content Include="eMedicalIntegrationServiceCorrect.svc" />
     <Content Include="Samples\01_RegisterHealthCaseRequest.xml" />
     <Content Include="Samples\01_RegSimple.xml" />
@@ -111,7 +109,6 @@
     <Content Include="Samples\05_NotifyCachedHealthClientDetailsUpdateResponse.xml" />
     <Content Include="Samples\06_AcknowledgementMessage_SuccessResponse.xml" />
     <Content Include="Samples\07_EnterpriseErrors_FaultResponse.xml" />
-    <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -121,18 +118,10 @@
     <Compile Include="Contracts\Health\HealthTypes.cs" />
     <Compile Include="Contracts\Health\ServiceMessages.cs" />
     <Compile Include="Contracts\Health\ServiceResponses.cs" />
-    <Compile Include="Contracts\IEMedicalService.cs" />
-    <Compile Include="eMedicalIntegrationService.svc.cs">
-      <DependentUpon>eMedicalIntegrationService.svc</DependentUpon>
-    </Compile>
     <Compile Include="eMedicalIntegrationServiceCorrect.svc.cs">
       <DependentUpon>eMedicalIntegrationServiceCorrect.svc</DependentUpon>
     </Compile>
     <Compile Include="IeMedicalIntegrationServiceCorrect.cs" />
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,9 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Samples\README.md" />
-    <Content Include="Contracts\COMPLETE-RECREATION-PLAN.md" />
-    <Content Include="Contracts\CONTRACT-STATUS-SUMMARY.md" />
-    <Content Include="Contracts\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
