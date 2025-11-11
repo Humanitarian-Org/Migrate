@@ -1,33 +1,36 @@
-using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using eMedicalService.Contracts.Health.Messaging;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "RegisterMedicalExaminationsResultsRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    [XmlRoot("RegisterMedicalExaminationsResultsRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
     public class RegisterMedicalExaminationsResultsRequestType
     {
-        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement(ElementName = "CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Core/V1.0")]
         public string CorrelationID { get; set; } = string.Empty;
 
-        [DataMember(Order = 1, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement(ElementName = "HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/V1.0")]
         public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
 
-        [DataMember(Order = 2)]
+        [XmlElement(ElementName = "RegisterMedicalExaminationsResultsRequestIdentityDocument")]
+        public RegisterMedicalExaminationsResultsRequestIdentityDocumentType RegisterMedicalExaminationsResultsRequestIdentityDocument { get; set; }
+
+        [XmlElement(ElementName = "IdentityDocument")]
         public RegisterMedicalExaminationsResultsRequestIdentityDocumentType IdentityDocument { get; set; }
 
-        [DataMember(Order = 3)]
+        [XmlElement(ElementName = "HealthFacialImageMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/V1.0")]
         public HealthFacialImageMsgType HealthFacialImageMsg { get; set; }
 
-        [DataMember(Order = 4)]
+        [XmlElement(ElementName = "HealthCaseDetailForm")]
         public HealthCaseDetailFormType HealthCaseDetailForm { get; set; }
 
-        [DataMember(Order = 5, Name = "HealthCaseAttachmentMsg")]
+        [XmlElement(ElementName = "HealthCaseAttachmentMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/V1.0")]
         public HealthCaseAttachmentMsgType[] HealthCaseAttachmentMsg { get; set; }
 
-        [DataMember(Order = 6, Name = "HealthRequirement")]
+        [XmlElement(ElementName = "HealthRequirement")]
         public RegisterMedicalExaminationsResultsRequestHealthRequirementType[] HealthRequirement { get; set; }
 
-        [DataMember(Order = 7)]
+        [XmlElement(ElementName = "ProcessingUnit")]
         public string ProcessingUnit { get; set; } = string.Empty;
     }
 }

@@ -1,27 +1,33 @@
 using System;
-using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "RegisterMedicalExaminationsResultsRequestIdentityDocumentType", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    [XmlRoot("RegisterMedicalExaminationsResultsRequestIdentityDocumentType", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
     public class RegisterMedicalExaminationsResultsRequestIdentityDocumentType
     {
-        [DataMember]
+        [XmlElement("DocumentType")]
         public string DocumentType { get; set; } = string.Empty;
 
-        [DataMember]
+        [XmlElement("DocumentTypeCode")]
+        public string DocumentTypeCode { get; set; } = string.Empty;
+
+        [XmlElement("DocumentNumber")]
         public string DocumentNumber { get; set; } = string.Empty;
 
-        [DataMember]
+        [XmlElement("IssuingCountry")]
         public string IssuingCountry { get; set; } = string.Empty;
 
-        [DataMember]
+        [XmlElement("IssuingCountryName")]
+        public string IssuingCountryName { get; set; } = string.Empty;
+
+        [XmlElement("ExpiryDate")]
         public DateTime ExpiryDate { get; set; }
 
-        [DataMember]
+        [XmlElement("IssueDate")]
         public DateTime IssueDate { get; set; }
 
-        [DataMember]
+        [XmlElement("DocumentImageData")]
         public string DocumentImageData { get; set; } = string.Empty;
     }
 }

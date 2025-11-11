@@ -1,23 +1,15 @@
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace eMedicalService.Contracts.Health.Messaging
 {
-    [DataContract(Name = "HealthClinicIdentifierMsgType", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+    [XmlType(TypeName = "HealthClinicIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
     public class HealthClinicIdentifierMsgType
     {
-        [DataMember]
-        public string ClinicId { get; set; } = string.Empty;
+        [XmlElement("HealthClinicIdentifier", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string HealthClinicIdentifier { get; set; } = string.Empty;
 
-        [DataMember]
-        public string ClinicName { get; set; } = string.Empty;
-
-        [DataMember]
-        public string CountryCode { get; set; } = string.Empty;
-
-        [DataMember]
-        public string StateCode { get; set; } = string.Empty;
-
-        [DataMember]
-        public string CityCode { get; set; } = string.Empty;
+        [XmlElement("HealthClinicIdentifierType", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public string HealthClinicIdentifierType { get; set; } = string.Empty;
     }
 }

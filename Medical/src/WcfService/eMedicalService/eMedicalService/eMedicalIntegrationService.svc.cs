@@ -2,6 +2,9 @@ using System;
 using System.ServiceModel;
 using System.Diagnostics;
 using System.IO;
+using eMedicalService.Contracts.Health.Messaging;
+using eMedicalService.Contracts.Health.Service;
+using eMedicalService.Contracts.Enterprise;
 
 namespace eMedicalService
 {
@@ -24,19 +27,39 @@ namespace eMedicalService
                 // Log the incoming request
                 LogDebugInfo($"{logEntry} - START");
                 LogDebugInfo($"Request received: {request?.GetType()?.Name ?? "null"}");
+                LogDebugInfo($"Request object: {request != null}");
+                LogDebugInfo($"Request Body: {request?.Body != null}");
                 
                 if (request?.Body != null)
                 {
-                    LogDebugInfo($"CorrelationID: {request.Body.CorrelationID ?? "null"}");
-                    LogDebugInfo($"HealthCaseIdentifierMsg count: {request.Body.HealthCaseIdentifierMsg?.Length ?? 0}");
+                    var body = request.Body;
+                    LogDebugInfo($"CorrelationID: '{body.CorrelationID ?? "NULL"}'");
+                    LogDebugInfo($"CachedCreationDate: {body.CachedCreationDate != null}");
+                    LogDebugInfo($"HealthCaseIdentifierMsg: {body.HealthCaseIdentifierMsg != null} (Length: {body.HealthCaseIdentifierMsg?.Length ?? 0})");
+                    LogDebugInfo($"HealthClinicIdentifierMsg: {body.HealthClinicIdentifierMsg != null}");
+                    LogDebugInfo($"RegisterHealthCaseClientBiographicalDetails: {body.RegisterHealthCaseClientBiographicalDetails != null}");
                     
-                    if (request.Body.RegisterHealthCaseClientBiographicalDetails != null)
+                    if (body.HealthCaseIdentifierMsg != null)
                     {
-                        var bio = request.Body.RegisterHealthCaseClientBiographicalDetails;
-                        LogDebugInfo($"GivenName: {bio.GivenName ?? "null"}");
-                        LogDebugInfo($"FamilyName: {bio.FamilyName ?? "null"}");
-                        LogDebugInfo($"SexType: {bio.SexType ?? "null"}");
+                        LogDebugInfo($"First HealthCaseIdentifierMsg HealthCaseIdentifier: {body.HealthCaseIdentifierMsg[0]?.HealthCaseIdentifier != null}");
+                        if (body.HealthCaseIdentifierMsg[0]?.HealthCaseIdentifier != null)
+                        {
+                            LogDebugInfo($"HealthCaseIdentifierValue: '{body.HealthCaseIdentifierMsg[0].HealthCaseIdentifier.HealthCaseIdentifierValue ?? "NULL"}'");
+                            // LogDebugInfo($"HealthCaseIdentifierType: '{body.HealthCaseIdentifierMsg[0].HealthCaseIdentifier.IdentifierTypeValue ?? "NULL"}'");
+                        }
                     }
+                    
+                    if (body.RegisterHealthCaseClientBiographicalDetails != null)
+                    {
+                        var bio = body.RegisterHealthCaseClientBiographicalDetails;
+                        LogDebugInfo($"GivenName: '{bio.GivenName ?? "NULL"}'");
+                        LogDebugInfo($"FamilyName: '{bio.FamilyName ?? "NULL"}'");
+                        LogDebugInfo($"SexType: '{bio.SexType ?? "NULL"}'");
+                    }
+                }
+                else 
+                {
+                    LogDebugInfo("Request.Body is null - deserialization failed!");
                 }
                 
                 // Create a successful response
@@ -212,7 +235,7 @@ namespace eMedicalService
                 {
                     LogDebugInfo($"CorrelationID: {request.Body.CorrelationID ?? "null"}");
                     LogDebugInfo($"DeletionReason: {request.Body.DeletionReason ?? "null"}");
-                    LogDebugInfo($"HealthCaseIdentifierMsg count: {request.Body.HealthCaseIdentifierMsg?.Length ?? 0}");
+                    LogDebugInfo($"HealthCaseIdentifierMsg: {request.Body.HealthCaseIdentifierMsg != null}");
                 }
                 
                 var response = new DeleteCachedHealthCaseResponseMessage

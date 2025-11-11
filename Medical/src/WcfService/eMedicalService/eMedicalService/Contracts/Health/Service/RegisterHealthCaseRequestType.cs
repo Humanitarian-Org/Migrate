@@ -1,25 +1,26 @@
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using eMedicalService.Contracts.Health.Core;
 using eMedicalService.Contracts.Health.Messaging;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "RegisterHealthCaseRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
+    [XmlRoot("RegisterHealthCaseRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
     public class RegisterHealthCaseRequestType
     {
-        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement("CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
         public string CorrelationID { get; set; } = string.Empty;
 
-        [DataMember(Order = 1)]
+        [XmlElement("CachedCreationDate", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
         public CachedUnstructuredDateType CachedCreationDate { get; set; }
 
-        [DataMember(Order = 2, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement("HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
         public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
 
-        [DataMember(Order = 3)]
+        [XmlElement("HealthClinicIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
         public HealthClinicIdentifierMsgType HealthClinicIdentifierMsg { get; set; }
 
-        [DataMember(Order = 4)]
+        [XmlElement("RegisterHealthCaseClientBiographicalDetails")]
         public RegisterHealthCaseClientBiographicalDetailsType RegisterHealthCaseClientBiographicalDetails { get; set; }
     }
 }

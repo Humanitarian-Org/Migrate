@@ -1,28 +1,31 @@
-using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using eMedicalService.Contracts.Health.Core;
 using eMedicalService.Contracts.Health.Messaging;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "NotifyMedicalExaminationStatusRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    [XmlRoot("NotifyMedicalExaminationStatusRequest", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
     public class NotifyMedicalExaminationStatusRequestType
     {
-        [DataMember(Order = 0, Name = "CorrelationID")]
+        [XmlElement(ElementName = "CorrelationID", Namespace = "http://www.immi.gov.au/Namespace/Core/V1.0")]
         public string CorrelationID { get; set; } = string.Empty;
 
-        [DataMember(Order = 1, Name = "HealthCaseIdentifierMsg")]
+        [XmlElement(ElementName = "HealthCaseIdentifierMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/V1.0")]
         public HealthCaseIdentifierMsgType[] HealthCaseIdentifierMsg { get; set; }
 
-        [DataMember(Order = 2)]
+        [XmlElement(ElementName = "CachedCreationDate", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
         public CachedUnstructuredDateType CachedCreationDate { get; set; }
 
-        [DataMember(Order = 3, Name = "HealthCaseStatusUpdate")]
+        [XmlElement(ElementName = "HealthCaseStatusUpdate")]
         public HealthCaseStatusUpdateType HealthCaseStatusUpdate { get; set; }
 
-        [DataMember(Order = 4)]
+        [XmlElement(ElementName = "ExaminationStatus")]
+        public string ExaminationStatus { get; set; } = string.Empty;
+
+        [XmlElement(ElementName = "HealthRequirements")]
         public NotifyMedicalExaminationStatusRequestHealthRequirementType[] HealthRequirements { get; set; }
 
-        [DataMember(Order = 5)]
+        [XmlElement(ElementName = "ClientContext")]
         public NotifyMedicalStatusRequestHealthClientContextType ClientContext { get; set; }
     }
 }

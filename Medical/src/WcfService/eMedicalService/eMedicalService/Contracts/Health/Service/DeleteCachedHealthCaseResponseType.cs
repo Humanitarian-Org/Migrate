@@ -1,15 +1,25 @@
-using System.Runtime.Serialization;
+using System;
+using System.Xml.Serialization;
 using eMedicalService.Contracts.Enterprise;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "DeleteCachedHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    [XmlRoot("DeleteCachedHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
     public class DeleteCachedHealthCaseResponseType
     {
-        [DataMember]
-        public string CorrelationId { get; set; } = string.Empty;
+        [XmlElement("CorrelationID")]
+        public string CorrelationID { get; set; } = string.Empty;
 
-        [DataMember]
+        [XmlElement("ProcessedDateTime")]
+        public DateTime ProcessedDateTime { get; set; }
+
+        [XmlElement("ResponseCode")]
+        public string ResponseCode { get; set; } = string.Empty;
+
+        [XmlElement("ResponseMessage")]
+        public string ResponseMessage { get; set; } = string.Empty;
+
+        [XmlElement("Acknowledgement")]
         public AcknowledgementMessage Acknowledgement { get; set; }
     }
 }

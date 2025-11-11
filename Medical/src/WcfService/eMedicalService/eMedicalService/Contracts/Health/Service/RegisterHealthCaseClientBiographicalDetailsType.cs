@@ -1,44 +1,39 @@
 using System;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using eMedicalService.Contracts.Health.Messaging;
-using eMedicalService.Contracts.Address;
+using eMedicalService.Contracts.Health.Core;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "RegisterHealthCaseClientBiographicalDetailsType", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
+    [XmlType(TypeName = "RegisterHealthCaseClientBiographicalDetails", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
     public class RegisterHealthCaseClientBiographicalDetailsType
     {
-        [DataMember]
-        public string Title { get; set; } = string.Empty;
-
-        [DataMember]
+        [XmlElement("GivenName", Namespace = "http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0")]
         public string GivenName { get; set; } = string.Empty;
 
-        [DataMember]
+        [XmlElement("FamilyName", Namespace = "http://www.immi.gov.au/Namespace/Enterprise/Core/V1.0")]
         public string FamilyName { get; set; } = string.Empty;
 
-        [DataMember]
-        public DateTime DateOfBirth { get; set; }
+        [XmlElement("SexType", Namespace = "http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0")]
+        public string SexType { get; set; } = string.Empty;
 
-        [DataMember]
-        public string Gender { get; set; } = string.Empty;
+        [XmlElement("CachedBirthYear", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedBirthYear { get; set; }
 
-        [DataMember]
-        public string CountryOfBirth { get; set; } = string.Empty;
+        [XmlElement("CachedBirthMonth", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedBirthMonth { get; set; }
 
-        [DataMember]
-        public string Nationality { get; set; } = string.Empty;
+        [XmlElement("CachedBirthDay", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedBirthDay { get; set; }
 
-        [DataMember]
-        public HealthIdentityDocumentMsgType HealthIdentityDocument { get; set; }
+        [XmlElement("BirthCountryCode", Namespace = "http://www.immi.gov.au/Namespace/PersonIdentity/Core/V1.0")]
+        public string BirthCountryCode { get; set; } = string.Empty;
 
-        [DataMember]
-        public AddressMsgType Address { get; set; }
+        [XmlElement("RelationshipToPrimaryApplicant", Namespace = "http://www.immi.gov.au/Namespace/Party/Core/V1.0")]
+        public string RelationshipToPrimaryApplicant { get; set; } = string.Empty;
 
-        [DataMember]
-        public string EmailAddress { get; set; } = string.Empty;
-
-        [DataMember]
-        public string PhoneNumber { get; set; } = string.Empty;
+        [XmlElement("HealthIdentityDocumentMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+        public HealthIdentityDocumentMsgType HealthIdentityDocumentMsg { get; set; }
     }
 }

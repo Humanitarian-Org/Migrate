@@ -71,6 +71,7 @@
     <Compile Include="Contracts\Departmental\DepartmentalTypes.cs" />
     <Compile Include="Contracts\Document\DocumentTypes.cs" />
     <Compile Include="Contracts\Enterprise\AcknowledgementMessage.cs" />
+    <Compile Include="Contracts\Enterprise\AcknowledgementMessageType.cs" />
     <Compile Include="Contracts\Enterprise\AcknowledgementType.cs" />
     <Compile Include="Contracts\Enterprise\EnterpriseErrors.cs" />
     <Compile Include="Contracts\Enterprise\InformationMessagesType.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Contracts\Health\Service\GetHealthCaseStatusResponseType.cs" />
     <Compile Include="Contracts\Health\Service\HealthCaseDetailFormType.cs" />
     <Compile Include="Contracts\Health\Service\HealthCaseStatusUpdateType.cs" />
+    <Compile Include="Contracts\Health\Service\NotifyCachedHealthClientDetailsUpdateRequestType.cs" />
     <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusRequestExaminationType.cs" />
     <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusRequestHealthRequirementType.cs" />
     <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusRequestType.cs" />

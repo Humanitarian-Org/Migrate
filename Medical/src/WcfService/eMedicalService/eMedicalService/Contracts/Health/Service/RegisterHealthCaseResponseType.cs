@@ -1,18 +1,28 @@
-using System.Runtime.Serialization;
+using System;
+using System.Xml.Serialization;
 using eMedicalService.Contracts.Enterprise;
 
 namespace eMedicalService.Contracts.Health.Service
 {
-    [DataContract(Name = "RegisterHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
+    [XmlRoot("RegisterHealthCaseResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V2.0")]
     public class RegisterHealthCaseResponseType
     {
-        [DataMember(Order = 0)]
+        [XmlElement("CorrelationID")]
         public string CorrelationID { get; set; } = string.Empty;
 
-        [DataMember(Order = 1)]
-        public string HealthCaseId { get; set; } = string.Empty;
+        [XmlElement("HealthCaseRegistrationId")]
+        public string HealthCaseRegistrationId { get; set; } = string.Empty;
 
-        [DataMember(Order = 2)]
+        [XmlElement("ProcessedDateTime")]
+        public DateTime ProcessedDateTime { get; set; }
+
+        [XmlElement("ResponseCode")]
+        public string ResponseCode { get; set; } = string.Empty;
+
+        [XmlElement("ResponseMessage")]
+        public string ResponseMessage { get; set; } = string.Empty;
+
+        [XmlElement("Acknowledgement")]
         public AcknowledgementMessage Acknowledgement { get; set; }
     }
 }

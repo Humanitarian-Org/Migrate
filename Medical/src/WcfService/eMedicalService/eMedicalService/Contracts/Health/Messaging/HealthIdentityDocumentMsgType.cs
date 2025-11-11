@@ -1,24 +1,26 @@
 using System;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
+using eMedicalService.Contracts.Health.Core;
 
 namespace eMedicalService.Contracts.Health.Messaging
 {
-    [DataContract(Name = "HealthIdentityDocumentMsgType", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
+    [XmlType(TypeName = "HealthIdentityDocumentMsg", Namespace = "http://www.immi.gov.au/Namespace/Health/Messaging/Service/V1.0")]
     public class HealthIdentityDocumentMsgType
     {
-        [DataMember]
-        public string DocumentType { get; set; } = string.Empty;
+        [XmlElement("DocumentTypeCode", Namespace = "http://www.immi.gov.au/Namespace/Document/Core/V1.0")]
+        public string DocumentTypeCode { get; set; } = string.Empty;
 
-        [DataMember]
+        [XmlElement("DocumentNumber", Namespace = "http://www.immi.gov.au/Namespace/Document/Core/V1.0")]
         public string DocumentNumber { get; set; } = string.Empty;
 
-        [DataMember]
-        public string IssuingCountry { get; set; } = string.Empty;
+        [XmlElement("IssuingCountryName", Namespace = "http://www.immi.gov.au/Namespace/Document/Core/V1.0")]
+        public string IssuingCountryName { get; set; } = string.Empty;
 
-        [DataMember]
-        public DateTime ExpiryDate { get; set; }
+        [XmlElement("CachedIssueDate", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedIssueDate { get; set; }
 
-        [DataMember]
-        public DateTime IssueDate { get; set; }
+        [XmlElement("CachedExpiryDate", Namespace = "http://www.immi.gov.au/Namespace/Health/Core/V1.0")]
+        public CachedUnstructuredDateType CachedExpiryDate { get; set; }
     }
 }
