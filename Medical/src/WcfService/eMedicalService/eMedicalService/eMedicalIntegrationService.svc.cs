@@ -8,7 +8,7 @@ namespace eMedicalService
     /// <summary>
     /// eMedical Integration Service Implementation with detailed logging for debugging
     /// </summary>
-    public class eMedicalIntegrationServiceCorrect : IeMedicalIntegrationServiceCorrect
+    public class eMedicalIntegrationService : IeMedicalIntegrationService
     {
         private static readonly string LogPath = @"C:\temp\wcf_debug.log";
 

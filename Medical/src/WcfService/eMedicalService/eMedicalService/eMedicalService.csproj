@@ -61,6 +61,71 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="eMedicalIntegrationService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\Address\AddressMsgType.cs" />
+    <Compile Include="Contracts\BusinessContext\BusinessContextTypes.cs" />
+    <Compile Include="Contracts\Correspondence\CorrespondenceTypes.cs" />
+    <Compile Include="Contracts\Departmental\DepartmentalTypes.cs" />
+    <Compile Include="Contracts\Document\DocumentTypes.cs" />
+    <Compile Include="Contracts\Enterprise\AcknowledgementMessage.cs" />
+    <Compile Include="Contracts\Enterprise\AcknowledgementType.cs" />
+    <Compile Include="Contracts\Enterprise\EnterpriseErrors.cs" />
+    <Compile Include="Contracts\Enterprise\InformationMessagesType.cs" />
+    <Compile Include="Contracts\Enterprise\InformationMessageType.cs" />
+    <Compile Include="Contracts\Enterprise\WarningMessagesType.cs" />
+    <Compile Include="Contracts\Enterprise\WarningMessageType.cs" />
+    <Compile Include="Contracts\Health\Core\CachedUnstructuredDateType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthCaseAttachmentMsgType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthCaseIdentifierMsgType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthClinicIdentifierMsgType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthFacialImageMsgType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthIdentityDocumentMsgType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthRequirementIdentifierMsgType.cs" />
+    <Compile Include="Contracts\Health\Messaging\HealthRequirementMsgType.cs" />
+    <Compile Include="Contracts\Health\Service\CacheHealthCaseDetailsRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\CacheHealthCaseDetailsResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\DeleteCachedHealthCaseRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\DeleteCachedHealthCaseResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\GetCachedHealthCaseRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\GetCachedHealthCaseResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\GetHealthCaseStatusRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\GetHealthCaseStatusResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\HealthCaseDetailFormType.cs" />
+    <Compile Include="Contracts\Health\Service\HealthCaseStatusUpdateType.cs" />
+    <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusRequestExaminationType.cs" />
+    <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusRequestHealthRequirementType.cs" />
+    <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\NotifyMedicalExaminationStatusResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\NotifyMedicalStatusRequestHealthClientContextType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterHealthCaseClientBiographicalDetailsType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterHealthCaseRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterHealthCaseResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterMedicalExaminationsResultsRequestExaminationType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterMedicalExaminationsResultsRequestHealthRequirementType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterMedicalExaminationsResultsRequestIdentityDocumentType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterMedicalExaminationsResultsRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\RegisterMedicalExaminationsResultsResponseType.cs" />
+    <Compile Include="Contracts\Health\Service\UpdateMedicalExaminationRequestType.cs" />
+    <Compile Include="Contracts\Health\Service\UpdateMedicalExaminationResponseType.cs" />
+    <Compile Include="Contracts\InformationRecord\InformationRecordTypes.cs" />
+    <Compile Include="Contracts\Party\PartyTypes.cs" />
+    <Compile Include="Contracts\PersonIdentity\PersonIdentityTypes.cs" />
+    <Compile Include="Contracts\Visa\VisaTypes.cs" />
+    <Compile Include="eMedicalIntegrationService.svc.cs">
+      <DependentUpon>eMedicalIntegrationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IeMedicalIntegrationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Contracts\Core\" />
+    <Folder Include="Samples\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Contracts\DeleteCachedHealthCaseRequest.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -100,36 +165,6 @@
     <None Include="Contracts\ValidationErrors.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="eMedicalIntegrationServiceCorrect.svc" />
-    <Content Include="Samples\01_RegisterHealthCaseRequest.xml" />
-    <Content Include="Samples\01_RegSimple.xml" />
-    <Content Include="Samples\02_NotifyMedicalExaminationStatusRequest.xml" />
-    <Content Include="Samples\03_DeleteCachedHealthCaseRequest.xml" />
-    <Content Include="Samples\04_RegisterMedicalExaminationsResultsRequest.xml" />
-    <Content Include="Samples\05_NotifyCachedHealthClientDetailsUpdateResponse.xml" />
-    <Content Include="Samples\06_AcknowledgementMessage_SuccessResponse.xml" />
-    <Content Include="Samples\07_EnterpriseErrors_FaultResponse.xml" />
-    <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Contracts\Address\AddressTypes.cs" />
-    <Compile Include="Contracts\Enterprise\CoreTypes.cs" />
-    <Compile Include="Contracts\Enterprise\MessageTypes.cs" />
-    <Compile Include="Contracts\Health\HealthTypes.cs" />
-    <Compile Include="Contracts\Health\ServiceMessages.cs" />
-    <Compile Include="Contracts\Health\ServiceResponses.cs" />
-    <Compile Include="eMedicalIntegrationServiceCorrect.svc.cs">
-      <DependentUpon>eMedicalIntegrationServiceCorrect.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IeMedicalIntegrationServiceCorrect.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Contracts\Core\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Samples\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,12 +173,13 @@
     </None>
   </ItemGroup>
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- Conditionally import web application targets only if they exist -->
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != '' and Exists('$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="!Exists('$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets') and Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets')" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

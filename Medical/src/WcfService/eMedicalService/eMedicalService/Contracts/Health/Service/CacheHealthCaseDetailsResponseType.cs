@@ -1,0 +1,18 @@
+using System.Runtime.Serialization;
+using eMedicalService.Contracts.Enterprise;
+
+namespace eMedicalService.Contracts.Health.Service
+{
+    [DataContract(Name = "CacheHealthCaseDetailsResponse", Namespace = "http://www.immi.gov.au/Namespace/Health/Service/V1.0")]
+    public class CacheHealthCaseDetailsResponseType
+    {
+        [DataMember]
+        public string CorrelationId { get; set; } = string.Empty;
+
+        [DataMember]
+        public string CacheId { get; set; } = string.Empty;
+
+        [DataMember]
+        public AcknowledgementMessage Acknowledgement { get; set; }
+    }
+}

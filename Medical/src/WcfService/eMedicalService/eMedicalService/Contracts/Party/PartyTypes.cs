@@ -326,7 +326,7 @@ namespace eMedicalService.Contracts.Party.Core.V1
         public string GenericIdentifierValue { get; set; }
 
         [DataMember]
-        public string GenericIdentifierType { get; set; }
+        public string IdentifierType { get; set; }
     }
 
     /// <summary>

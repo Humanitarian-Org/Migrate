@@ -13,7 +13,7 @@ namespace eMedicalService
     /// </summary>
     [ServiceContract(Namespace = "http://www.immi.gov.au/Namespace/HealthCaseIOM/ExtServices/Interface/V1", 
                      Name = "HealthCase_Ext_PortType_V1_0")]
-    public interface IeMedicalIntegrationServiceCorrect
+    public interface IeMedicalIntegrationService
     {
         /// <summary>
         /// Registers a new health case in the system
