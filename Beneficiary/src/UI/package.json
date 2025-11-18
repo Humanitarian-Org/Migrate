@@ -1,8 +1,8 @@
 {
-  "name": "@iom/beneficiary-ui",
+  "name": "@humanitarian/beneficiary-ui",
   "version": "1.0.0",
   "private": true,
-  "description": "IOM Beneficiary UI - Micro-frontend remote application",
+  "description": "Humanitarian.org Beneficiary UI - Micro-frontend remote application",
   "scripts": {
     "start": "webpack serve --mode development --port 3001",
     "build": "webpack --mode production",

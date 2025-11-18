@@ -100,7 +100,7 @@ module.exports = (env, argv) => {
       
       new HtmlWebpackPlugin({
         template: './public/index.html',
-        title: 'IOM Beneficiary UI',
+        title: 'Humanitarian.org Beneficiary UI',
       }),
     ],
     

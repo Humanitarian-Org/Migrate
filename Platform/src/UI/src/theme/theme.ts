@@ -1,26 +1,26 @@
 import { createTheme } from '@mui/material/styles';
 
-// IOM Official Brand Colors based on their website
+// Humanitarian.org Official Brand Colors
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#003366', // IOM Official Navy Blue
-      light: '#336699',
-      dark: '#001122',
+      main: '#0072CE', // Humanitarian.org Blue
+      light: '#4A9FDB',
+      dark: '#005BA3',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#66B2FF', // IOM Light Blue
-      light: '#99CCFF',
-      dark: '#3399FF',
-      contrastText: '#003366',
+      main: '#FF6B35', // Humanitarian.org Orange
+      light: '#FF8A60',
+      dark: '#E55A2B',
+      contrastText: '#ffffff',
     },
     background: {
       default: '#f8f9fa', // Very light gray
       paper: '#ffffff',
     },
     text: {
-      primary: '#003366', // Dark blue for primary text
+      primary: '#0072CE', // Dark blue for primary text
       secondary: '#666666',
     },
     info: {
@@ -49,37 +49,37 @@ const theme = createTheme({
     h1: {
       fontSize: '2.5rem',
       fontWeight: 600,
-      color: '#003366',
+      color: '#0072CE',
       letterSpacing: '-0.01562em',
     },
     h2: {
       fontSize: '2rem',
       fontWeight: 600,
-      color: '#003366',
+      color: '#0072CE',
       letterSpacing: '-0.00833em',
     },
     h3: {
       fontSize: '1.75rem',
       fontWeight: 500,
-      color: '#003366',
+      color: '#0072CE',
       letterSpacing: '0em',
     },
     h4: {
       fontSize: '1.5rem',
       fontWeight: 500,
-      color: '#003366',
+      color: '#0072CE',
       letterSpacing: '0.00735em',
     },
     h5: {
       fontSize: '1.25rem',
       fontWeight: 500,
-      color: '#003366',
+      color: '#0072CE',
       letterSpacing: '0em',
     },
     h6: {
       fontSize: '1rem',
       fontWeight: 600,
-      color: '#003366',
+      color: '#0072CE',
       letterSpacing: '0.0075em',
     },
     body1: {
@@ -118,9 +118,9 @@ const theme = createTheme({
           paddingRight: 24,
         },
         contained: {
-          boxShadow: '0 2px 8px rgba(0, 51, 102, 0.15)',
+          boxShadow: '0 2px 8px rgba(0, 114, 206, 0.15)',
           '&:hover': {
-            boxShadow: '0 4px 12px rgba(0, 51, 102, 0.25)',
+            boxShadow: '0 4px 12px rgba(0, 114, 206, 0.25)',
           },
         },
       },
@@ -129,9 +129,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 12,
-          boxShadow: '0 2px 12px rgba(0, 51, 102, 0.08)',
+          boxShadow: '0 2px 12px rgba(0, 114, 206, 0.08)',
           '&:hover': {
-            boxShadow: '0 4px 20px rgba(0, 51, 102, 0.12)',
+            boxShadow: '0 4px 20px rgba(0, 114, 206, 0.12)',
           },
         },
       },
@@ -139,9 +139,9 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#003366',
+          backgroundColor: '#0072CE',
           color: '#ffffff',
-          boxShadow: '0 2px 8px rgba(0, 51, 102, 0.15)',
+          boxShadow: '0 2px 8px rgba(0, 114, 206, 0.15)',
         },
       },
     },
@@ -149,7 +149,7 @@ const theme = createTheme({
       styleOverrides: {
         paper: {
           backgroundColor: '#f8f9fa',
-          borderRight: '1px solid rgba(0, 51, 102, 0.12)',
+          borderRight: '1px solid rgba(0, 114, 206, 0.12)',
         },
       },
     },
@@ -159,17 +159,17 @@ const theme = createTheme({
           borderRadius: 8,
           margin: '4px 8px',
           '&.Mui-selected': {
-            backgroundColor: '#003366',
+            backgroundColor: '#0072CE',
             color: '#ffffff',
             '&:hover': {
-              backgroundColor: '#336699',
+              backgroundColor: '#4A9FDB',
             },
             '& .MuiListItemIcon-root': {
               color: '#ffffff',
             },
           },
           '&:hover': {
-            backgroundColor: 'rgba(0, 51, 102, 0.04)',
+            backgroundColor: 'rgba(0, 114, 206, 0.04)',
           },
         },
       },

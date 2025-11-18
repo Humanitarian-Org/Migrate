@@ -1,6 +1,6 @@
-# IOM Platform UI
+# Humanitarian.org Platform UI
 
-A React-based micro-frontend application for the IOM Migration Platform with a focus on beneficiary bulk import functionality.
+A React-based micro-frontend application for the Humanitarian.org Migration Platform with a focus on beneficiary bulk import functionality.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ This UI application is built using a micro-frontend architecture with Module Fed
 
 - **React 18** - Frontend framework
 - **TypeScript** - Type safety and better development experience
-- **Material-UI (MUI)** - Component library with IOM branding
+- **Material-UI (MUI)** - Component library with Humanitarian.org branding
 - **Module Federation** - Micro-frontend architecture
 - **React Router** - Client-side routing
 - **React Hook Form** - Form validation and management
@@ -154,12 +154,12 @@ This application is designed to work with other micro-frontends:
 
 The configuration in `webpack.config.js` defines how modules are shared and loaded.
 
-## IOM Branding
+## Humanitarian.org Branding
 
-The application uses IOM's official color scheme:
+The application uses Humanitarian.org's official color scheme:
 
-- **Primary Blue**: #0072CE (IOM Blue)
-- **Secondary Orange**: #FF6B35 (IOM Orange)
+- **Primary Blue**: #0072CE (Humanitarian.org Blue)
+- **Secondary Orange**: #FF6B35 (Humanitarian.org Orange)
 - **Supporting colors** for status indicators and UI elements
 
 ## Troubleshooting

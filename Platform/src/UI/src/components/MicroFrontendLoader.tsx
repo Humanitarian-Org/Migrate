@@ -47,10 +47,10 @@ const loadRemoteModule = (scope: string, module: string): Promise<ComponentType<
 const getRemoteUrl = (scope: string): string => {
   const remoteUrls: Record<string, string> = {
     beneficiaryUI: process.env.NODE_ENV === 'production' 
-      ? 'https://beneficiary-ui.iom.int/remoteEntry.js'
+      ? 'https://beneficiary-ui.humanitarian.org/remoteEntry.js'
       : 'http://localhost:3001/remoteEntry.js',
     medicalUI: process.env.NODE_ENV === 'production'
-      ? 'https://medical-ui.iom.int/remoteEntry.js' 
+      ? 'https://medical-ui.humanitarian.org/remoteEntry.js' 
       : 'http://localhost:3002/remoteEntry.js',
   };
   

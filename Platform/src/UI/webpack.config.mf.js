@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
         remotes: {
           // Reference to Beneficiary UI remote
           beneficiaryUI: isProduction 
-            ? 'beneficiaryUI@https://beneficiary-ui.iom.int/remoteEntry.js'
+            ? 'beneficiaryUI@https://beneficiary-ui.humanitarian.org/remoteEntry.js'
             : 'beneficiaryUI@http://localhost:3001/remoteEntry.js',
           // Could add more remotes for other domains
           // medicalUI: 'medicalUI@http://localhost:3002/remoteEntry.js',
@@ -101,7 +101,7 @@ module.exports = (env, argv) => {
       
       new HtmlWebpackPlugin({
         template: './public/index.html',
-        title: 'IOM Platform',
+        title: 'Humanitarian.org Platform',
         inject: true,
       }),
     ],

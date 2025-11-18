@@ -1,0 +1,12 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Humanitarian.org Logo Design -->
+  <rect width="120" height="60" fill="#0072CE"/>
+  
+  <!-- Humanitarian.org Text -->
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Humanitarian.org</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="15" cy="15" r="3" fill="#FF6B35"/>
+  <circle cx="105" cy="45" r="3" fill="#FF6B35"/>
+  <path d="M25 30 L35 25 L35 35 Z" fill="#FF6B35"/>
+</svg>

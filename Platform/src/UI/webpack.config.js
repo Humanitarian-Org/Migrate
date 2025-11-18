@@ -56,7 +56,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './public/index.html',
-        title: 'IOM Platform',
+        title: 'Humanitarian.org Platform',
         inject: true,
       }),
     ],

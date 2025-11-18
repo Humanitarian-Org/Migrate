@@ -1,8 +1,8 @@
 {
-  "name": "@iom/platform-ui-shell",
+  "name": "@humanitarian/platform-ui-shell",
   "version": "1.0.0",
   "private": true,
-  "description": "IOM Platform UI Shell - Micro-frontend host application",
+  "description": "Humanitarian.org Platform UI Shell - Micro-frontend host application",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",

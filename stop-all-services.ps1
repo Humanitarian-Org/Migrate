@@ -1,7 +1,7 @@
-# IOM Migration Platform - Stop All Services Script
+# Humanitarian.org Migration Platform - Stop All Services Script
 # This script stops all running development servers
 
-Write-Host "🛑 Stopping IOM Migration Platform Services..." -ForegroundColor Red
+Write-Host "🛑 Stopping Humanitarian.org Migration Platform Services..." -ForegroundColor Red
 Write-Host ""
 
 # Ports used by our services (including Azurite)

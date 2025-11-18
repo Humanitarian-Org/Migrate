@@ -61,11 +61,11 @@ const Dashboard: React.FC = () => {
   return (
     <Box sx={{ flexGrow: 1, p: 3 }}>
       <Typography variant="h4" component="h1" gutterBottom>
-        IOM Migration Platform Dashboard
+        Humanitarian.org Migration Platform Dashboard
       </Typography>
       
       <Typography variant="body1" color="text.secondary" paragraph>
-        Welcome to the IOM Migration Platform. Use the quick actions below to get started,
+        Welcome to the Humanitarian.org Migration Platform. Use the quick actions below to get started,
         or navigate using the sidebar menu.
       </Typography>
 
