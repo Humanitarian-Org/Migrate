@@ -25,7 +25,7 @@ Initially, the `BeneficiaryCreationSuccess` and `BeneficiaryCreationFailed` even
 <ItemGroup>
   <ProjectReference Include="..\Domain\Domain.csproj" />
   <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-  <ProjectReference Include="..\..\..\Beneficiary\src\Domain\Domain.csproj" />
+  <ProjectReference Include="..\..\..\Payments\src\Domain\Domain.csproj" />
 </ItemGroup>
 ```
 

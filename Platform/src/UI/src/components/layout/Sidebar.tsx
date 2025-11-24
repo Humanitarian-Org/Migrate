@@ -45,7 +45,7 @@ const menuItems: MenuItem[] = [
       {
         text: 'Bulk Import',
         icon: <UploadIcon />,
-        path: '/beneficiary/bulk-import',
+        path: '/payments/bulk-import',
       },
       {
         text: 'View All',

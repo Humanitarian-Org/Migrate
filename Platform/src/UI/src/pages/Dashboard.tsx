@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
       description: 'Upload a CSV file to import multiple transactions at once',
       icon: <UploadIcon sx={{ fontSize: 40 }} />,
       color: 'primary',
-      action: () => navigate('/beneficiary/bulk-import'),
+      action: () => navigate('/payments/bulk-import'),
     },
     {
       title: 'View Transactions',

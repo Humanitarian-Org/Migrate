@@ -80,7 +80,7 @@ const BulkImportDetails: React.FC = () => {
     else setLoading(true);
     
     try {
-      const response = await fetch(`/api/beneficiary/bulk-upload/status/${correlationId}`);
+      const response = await fetch(`/api/payments/bulk-upload/status/${correlationId}`);
       
       if (!response.ok) {
         throw new Error(`Failed to fetch processing status: ${response.status}`);
@@ -260,7 +260,7 @@ const BulkImportDetails: React.FC = () => {
       <Box sx={{ p: 3 }}>
         <Button
           startIcon={<ArrowBackIcon />}
-          onClick={() => navigate('/beneficiary/bulk-import')}
+          onClick={() => navigate('/payments/bulk-import')}
           sx={{ mb: 2 }}
         >
           Back to Bulk Import
@@ -281,7 +281,7 @@ const BulkImportDetails: React.FC = () => {
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Button
             startIcon={<ArrowBackIcon />}
-            onClick={() => navigate('/beneficiary/bulk-import')}
+            onClick={() => navigate('/payments/bulk-import')}
             sx={{ mr: 2 }}
           >
             Back to Bulk Import

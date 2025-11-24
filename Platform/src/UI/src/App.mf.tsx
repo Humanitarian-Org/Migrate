@@ -4,7 +4,7 @@ import { Box, Container } from '@mui/material';
 import Header from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
 import Dashboard from './pages/Dashboard';
-import BeneficiaryBulkImport from './pages/BeneficiaryBulkImport';
+import PaymentsBulkImport from './pages/PaymentsBulkImport';
 import MicroFrontendLoader from './components/MicroFrontendLoader';
 import NotFound from './pages/NotFound';
 
@@ -31,11 +31,11 @@ function App() {
         <Container maxWidth="xl">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/beneficiary/bulk-import" element={<BeneficiaryBulkImport />} />
+            <Route path="/payments/bulk-import" element={<PaymentsBulkImport />} />
             
             {/* Dynamic route for transaction micro-frontend */}}
             <Route 
-              path="/beneficiary/bulk-import/details/:correlationId" 
+              path="/payments/bulk-import/details/:correlationId" 
               element={
                 <MicroFrontendLoader
                   scope="beneficiaryUI"

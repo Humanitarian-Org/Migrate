@@ -28,7 +28,7 @@ namespace Api
 
         [Function("BulkBeneficiaryUpload")]
         public async Task<HttpResponseData> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "beneficiary/bulk-upload")] HttpRequestData req, 
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "payments/bulk-upload")] HttpRequestData req, 
             FunctionContext executionContext)
         {
             try

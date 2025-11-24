@@ -107,7 +107,7 @@ interface UploadStatus {
   fileName?: string;
 }
 
-const BeneficiaryBulkImport: React.FC = () => {
+const PaymentsBulkImport: React.FC = () => {
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<ProcessingResult | null>(null);
@@ -542,7 +542,7 @@ const BeneficiaryBulkImport: React.FC = () => {
       await joinUploadGroup(correlationId);
 
       // Send to Platform API
-      const response = await fetch('/api/beneficiary/bulk-upload', {
+      const response = await fetch('/api/payments/bulk-upload', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -774,7 +774,7 @@ const BeneficiaryBulkImport: React.FC = () => {
                 endIcon={<OpenInNewIcon />}
                 onClick={() => {
                   // Navigate to the details page with the correlation ID
-                  navigate(`/beneficiary/bulk-import/details/${uploadStatus.correlationId}`);
+                  navigate(`/payments/bulk-import/details/${uploadStatus.correlationId}`);
                 }}
                 sx={{ textTransform: 'none' }}
               >
@@ -1054,4 +1054,4 @@ const BeneficiaryBulkImport: React.FC = () => {
   );
 };
 
-export default BeneficiaryBulkImport;
+export default PaymentsBulkImport;
