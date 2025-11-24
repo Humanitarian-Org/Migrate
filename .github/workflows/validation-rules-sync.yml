@@ -3,7 +3,7 @@ name: Validation Rules Synchronization
 on:
   push:
     paths:
-      - 'Beneficiary/docs/beneficiary-validation-rules.md'
+      - 'Payments/docs/Payments-validation-rules.md'
     branches: [main, master, develop]
   workflow_dispatch:
     inputs:
