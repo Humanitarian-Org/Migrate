@@ -106,7 +106,7 @@ namespace Api
 
         [Function("GetBulkBeneficiaryUploadStatus")]
         public async Task<HttpResponseData> GetStatus(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "beneficiary/bulk-upload/status/{correlationId}")] HttpRequestData req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "payments/bulk-upload/status/{correlationId}")] HttpRequestData req,
             string correlationId,
             FunctionContext executionContext)
         {

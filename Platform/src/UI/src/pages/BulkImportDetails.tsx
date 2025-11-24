@@ -35,10 +35,11 @@ import {
   Schedule as PendingIcon,
   Replay as RetryIcon,
 } from '@mui/icons-material';
-import RetryBeneficiaryForm from '../components/RetryBeneficiaryForm';
+import RetryPaymentForm from '../components/RetryPaymentForm';
 
-interface BeneficiaryProcessingResult {
-  beneficiaryId: string;
+interface PaymentProcessingResult {
+  paymentId?: string;
+  beneficiaryId?: string; // For backwards compatibility
   firstName: string;
   lastName: string;
   status: string;
@@ -46,14 +47,14 @@ interface BeneficiaryProcessingResult {
   processedAt: string;
 }
 
-interface BulkBeneficiaryProcessingStatus {
+interface BulkPaymentProcessingStatus {
   correlationId: string;
   uploadId: string;
   totalRecords: number;
   processedRecords: number;
   successfulRecords: number;
   failedRecords: number;
-  results: BeneficiaryProcessingResult[];
+  results: PaymentProcessingResult[];
   lastUpdated: string;
 }
 
@@ -63,15 +64,15 @@ const BulkImportDetails: React.FC = () => {
   
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [data, setData] = useState<BulkBeneficiaryProcessingStatus | null>(null);
+  const [data, setData] = useState<BulkPaymentProcessingStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [retryDialogOpen, setRetryDialogOpen] = useState(false);
-  const [selectedBeneficiary, setSelectedBeneficiary] = useState<BeneficiaryProcessingResult | null>(null);
-  const [originalBeneficiaryData, setOriginalBeneficiaryData] = useState<any>(null);
+  const [selectedPayment, setSelectedPayment] = useState<PaymentProcessingResult | null>(null);
+  const [originalPaymentData, setOriginalPaymentData] = useState<any>(null);
   const [successMessage, setSuccessMessage] = useState<string>('');
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -141,9 +142,10 @@ const BulkImportDetails: React.FC = () => {
   };
 
   const filteredResults = data?.results?.filter(result => {
+    const recordId = result.paymentId || result.beneficiaryId || '';
     const matchesSearch = !searchTerm || 
       `${result.firstName} ${result.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      result.beneficiaryId.toLowerCase().includes(searchTerm.toLowerCase());
+      recordId.toLowerCase().includes(searchTerm.toLowerCase());
     
     const matchesStatus = statusFilter === 'all' || result.status.toLowerCase() === statusFilter;
     
@@ -161,7 +163,7 @@ const BulkImportDetails: React.FC = () => {
     const csvContent = [
       ['Transaction ID', 'First Name', 'Last Name', 'Status', 'Error', 'Processed At'].join(','),
       ...data.results.map(result => [
-        result.beneficiaryId,
+        result.paymentId || result.beneficiaryId || '',
         result.firstName,
         result.lastName,
         result.status,
@@ -181,18 +183,23 @@ const BulkImportDetails: React.FC = () => {
     document.body.removeChild(link);
   };
 
-  const handleRetryBeneficiary = async (result: BeneficiaryProcessingResult) => {
+  const handleRetryPayment = async (result: PaymentProcessingResult) => {
     try {
       // In a real implementation, we'd fetch the original record data from the bulk upload
       // For now, we'll create a reasonable default based on what we have
       // TODO: Enhance this to fetch actual original data from the bulk upload record
+      
+      // Handle both paymentId and beneficiaryId for backwards compatibility
+      const recordId = result.paymentId || (result as any).beneficiaryId || 'UNKNOWN';
+      const idPrefix = recordId.length >= 8 ? recordId.substring(0, 8) : recordId;
+      
       const originalData = {
         firstName: result.firstName,
         lastName: result.lastName,
         dateOfBirth: '1990-01-01', // Default placeholder
         nationality: 'Syrian', // Default placeholder  
         documentType: 'Passport', // Default placeholder
-        documentNumber: `DOC-${result.beneficiaryId.substring(0, 8)}`, // Generated placeholder
+        documentNumber: `DOC-${idPrefix}`, // Generated placeholder
         email: `${result.firstName.toLowerCase()}.${result.lastName.toLowerCase()}@example.com`,
         phone: '+1234567890',
         address: '123 Main Street',
@@ -204,11 +211,11 @@ const BulkImportDetails: React.FC = () => {
         specialNeeds: 'None',
         caseStatus: 'PENDING',
         caseWorker: 'Case Worker',
-        notes: `Retry of failed record: ${result.beneficiaryId}. Original error: ${result.error}`,
+        notes: `Retry of failed record: ${recordId}. Original error: ${result.error}`,
       };
 
-      setSelectedBeneficiary(result);
-      setOriginalBeneficiaryData(originalData);
+      setSelectedPayment(result);
+      setOriginalPaymentData(originalData);
       setRetryDialogOpen(true);
     } catch (error) {
       console.error('Error preparing retry data:', error);
@@ -216,16 +223,17 @@ const BulkImportDetails: React.FC = () => {
     }
   };
 
-  const handleRetrySuccess = (beneficiaryId: string) => {
+  const handleRetrySuccess = (recordId: string) => {
     // Update the local state to mark this record as successful
     setData(prevData => {
       if (!prevData) return prevData;
       
-      const updatedResults = prevData.results.map(result => 
-        result.beneficiaryId === beneficiaryId 
+      const updatedResults = prevData.results.map(result => {
+        const currentRecordId = result.paymentId || result.beneficiaryId;
+        return currentRecordId === recordId
           ? { ...result, status: 'Success', error: undefined, processedAt: new Date().toISOString() }
-          : result
-      );
+          : result;
+      });
       
       // Update counts
       const successfulRecords = prevData.successfulRecords + 1;
@@ -240,9 +248,9 @@ const BulkImportDetails: React.FC = () => {
     });
     
     // Show success message
-    const beneficiary = data?.results.find(r => r.beneficiaryId === beneficiaryId);
-    const name = beneficiary ? `${beneficiary.firstName} ${beneficiary.lastName}` : 'Transaction';
-    setSuccessMessage(`${name} has been successfully registered!`);
+    const payment = data?.results.find(r => (r.paymentId || r.beneficiaryId) === recordId);
+    const name = payment ? `${payment.firstName} ${payment.lastName}` : 'Transaction';
+    setSuccessMessage(`${name} has been successfully processed!`);
     setShowSuccess(true);
   };
 
@@ -441,7 +449,7 @@ const BulkImportDetails: React.FC = () => {
                   </TableCell>
                   <TableCell>
                     <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
-                      {result.beneficiaryId}
+                      {result.paymentId || result.beneficiaryId}
                     </Typography>
                   </TableCell>
                   <TableCell>
@@ -466,7 +474,7 @@ const BulkImportDetails: React.FC = () => {
                         variant="outlined"
                         color="primary"
                         startIcon={<RetryIcon />}
-                        onClick={() => handleRetryBeneficiary(result)}
+                        onClick={() => handleRetryPayment(result)}
                       >
                         Retry
                       </Button>
@@ -493,11 +501,11 @@ const BulkImportDetails: React.FC = () => {
       </Paper>
 
       {/* Retry Transaction Form Dialog */}
-      <RetryBeneficiaryForm
+      <RetryPaymentForm
         open={retryDialogOpen}
         onClose={() => setRetryDialogOpen(false)}
-        beneficiary={selectedBeneficiary}
-        originalData={originalBeneficiaryData}
+        payment={selectedPayment}
+        originalData={originalPaymentData}
         correlationId={correlationId || ''}
         onSuccess={handleRetrySuccess}
       />
