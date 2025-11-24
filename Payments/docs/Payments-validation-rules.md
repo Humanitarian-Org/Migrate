@@ -2,23 +2,15 @@
 
 ## Overview
 
-This document serves as the **central source of truth** for all beneficiary validation rules across the AcmeCorp Migration Platform. These rules are implemented in multiple locations and should be kept in sync:
+This document serves as the **central source of truth** for all payment validation rules across the AcmeCorp Platform. These rules are implemented in multiple locations and should be kept in sync:
 
-## Validation Implementation Layers
 
-| Layer | File Location | Purpose | Validation Type | Technology |
-|-------|---------------|---------|-----------------|------------|
-| **Frontend Bulk Upload** | `BeneficiaryBulkImport.tsx` | Client-side CSV/Excel validation | Real-time bulk validation | TypeScript/React |
-| **Validation Rules Dialog** | `ValidationRulesDialog.tsx` | User guidance and rule display | UI assistance | TypeScript/React |
-| **Retry Form Validation** | `RetryBeneficiaryForm.tsx` | Individual record retry validation | Form validation | TypeScript/React |
-| **DTO Validation** | `BeneficiaryRegistrationDto.cs` | Data contract validation | Attribute-based validation | C# Data Annotations |
-| **Business Logic** | `BeneficiaryManager.cs` | Server-side business rules | Business rule validation | C# Service Layer |
 
 ## Validation Categories
 
 ### Validation Strategy Overview
 
-The beneficiary validation system employs a **multi-layered approach** with different types of validation rules that work together to ensure data quality, security, and business compliance:
+The payments validation system employs a **multi-layered approach** with different types of validation rules that work together to ensure data quality, security, and business compliance:
 
 #### **🔒 Data Integrity Validation**
 - **Required Field Validation**: Ensures critical information is always provided
@@ -27,7 +19,7 @@ The beneficiary validation system employs a **multi-layered approach** with diff
 - **Type Safety**: Validates data types and prevents injection attacks
 
 #### **📋 Business Rule Validation**
-- **Uniqueness Rules**: Prevents duplicate beneficiaries based on document information
+- **Uniqueness Rules**: Prevents duplicate payments based on document information
 - **Reference Data Validation**: Ensures nationality and case worker references are valid
 - **Workflow State Management**: Validates case status transitions and business processes
 - **External System Integration**: Validates against external country and worker databases
@@ -163,6 +155,16 @@ if (isDuplicateDocument)
     return ValidationError($"A beneficiary with document {documentType} {documentNumber} already exists");
 }
 ```
+## Validation Implementation Layers
+
+| Layer | File Location | Purpose | Validation Type | Technology |
+|-------|---------------|---------|-----------------|------------|
+| **Frontend Bulk Upload** | `BeneficiaryBulkImport.tsx` | Client-side CSV/Excel validation | Real-time bulk validation | TypeScript/React |
+| **Validation Rules Dialog** | `ValidationRulesDialog.tsx` | User guidance and rule display | UI assistance | TypeScript/React |
+| **Retry Form Validation** | `RetryBeneficiaryForm.tsx` | Individual record retry validation | Form validation | TypeScript/React |
+| **DTO Validation** | `BeneficiaryRegistrationDto.cs` | Data contract validation | Attribute-based validation | C# Data Annotations |
+| **Business Logic** | `BeneficiaryManager.cs` | Server-side business rules | Business rule validation | C# Service Layer |
+
 
 **SQL Query Pattern:**
 ```sql
