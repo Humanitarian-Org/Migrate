@@ -629,7 +629,7 @@ graph TD
 
 ### Namespaces
 - **Format**: `{CompanyName}.{DomainName}.{ProjectType}`
-- **Examples**: `Humanitarian.Beneficiary.Api`, `MyCompany.Questions.Domain`
+- **Examples**: `AcmeCorp.Beneficiary.Api`, `MyCompany.Questions.Domain`
 
 ### Files
 - **Entities**: `{EntityName}.cs` (e.g., `Beneficiary.cs`, `Question.cs`)

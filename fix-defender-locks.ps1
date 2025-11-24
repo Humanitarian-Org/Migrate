@@ -4,7 +4,7 @@
 Write-Host "🔧 Fixing Microsoft Defender DLL Locking Issues..." -ForegroundColor Yellow
 Write-Host ""
 
-$workspaceRoot = "C:\Dev\Humanitarian-org\Migrate"
+$workspaceRoot = "C:\Dev\AcmeCorp-org\Migrate"
 
 # Function to clean a project
 function Clean-Project($projectPath, $projectName) {

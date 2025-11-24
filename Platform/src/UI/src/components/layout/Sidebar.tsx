@@ -39,7 +39,7 @@ const menuItems: MenuItem[] = [
     path: '/',
   },
   {
-    text: 'Beneficiaries',
+    text: 'Bank Transactions',
     icon: <PeopleIcon />,
     children: [
       {
@@ -76,7 +76,7 @@ const Sidebar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [expandedItems, setExpandedItems] = React.useState<{ [key: string]: boolean }>({
-    Beneficiaries: true, // Expand by default
+    Transactions: true, // Expand by default
   });
 
   const handleItemClick = (item: MenuItem) => {

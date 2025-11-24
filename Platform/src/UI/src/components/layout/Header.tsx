@@ -64,8 +64,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
           <Box
             component="img"
-            src="/humanitarian-logo.svg"
-            alt="Humanitarian.org Logo"
+            src="/acmecorp-logo.svg"
+            alt="AcmeCorp Logo"
             sx={{
               height: 40,
               width: 80,
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                 lineHeight: 1.2,
               }}
             >
-              Humanitarian.org Migration Platform
+              AcmeCorp.org Bank Transaction Platform
             </Typography>
             <Typography
               variant="caption"
@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                 lineHeight: 1,
               }}
             >
-              Humanitarian.org
+              AcmeCorp.org
             </Typography>
           </Box>
         </Box>

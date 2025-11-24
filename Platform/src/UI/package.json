@@ -1,8 +1,8 @@
 {
-  "name": "@humanitarian/platform-ui-shell",
-  "version": "1.0.0",
+  "name": "@acmecorp/platform-ui-shell",
+  "version": "0.1.0",
   "private": true,
-  "description": "Humanitarian.org Platform UI Shell - Micro-frontend host application",
+  "description": "AcmeCorp Platform UI Shell - Micro-frontend host application",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",

@@ -159,7 +159,7 @@ const BulkImportDetails: React.FC = () => {
     if (!data?.results) return;
     
     const csvContent = [
-      ['Beneficiary ID', 'First Name', 'Last Name', 'Status', 'Error', 'Processed At'].join(','),
+      ['Transaction ID', 'First Name', 'Last Name', 'Status', 'Error', 'Processed At'].join(','),
       ...data.results.map(result => [
         result.beneficiaryId,
         result.firstName,
@@ -241,7 +241,7 @@ const BulkImportDetails: React.FC = () => {
     
     // Show success message
     const beneficiary = data?.results.find(r => r.beneficiaryId === beneficiaryId);
-    const name = beneficiary ? `${beneficiary.firstName} ${beneficiary.lastName}` : 'Beneficiary';
+    const name = beneficiary ? `${beneficiary.firstName} ${beneficiary.lastName}` : 'Transaction';
     setSuccessMessage(`${name} has been successfully registered!`);
     setShowSuccess(true);
   };
@@ -424,7 +424,7 @@ const BulkImportDetails: React.FC = () => {
               <TableRow>
                 <TableCell>Status</TableCell>
                 <TableCell>Name</TableCell>
-                <TableCell>Beneficiary ID</TableCell>
+                <TableCell>Transaction ID</TableCell>
                 <TableCell>Error Details</TableCell>
                 <TableCell>Processed At</TableCell>
                 <TableCell>Actions</TableCell>
@@ -492,7 +492,7 @@ const BulkImportDetails: React.FC = () => {
         />
       </Paper>
 
-      {/* Retry Beneficiary Form Dialog */}
+      {/* Retry Transaction Form Dialog */}
       <RetryBeneficiaryForm
         open={retryDialogOpen}
         onClose={() => setRetryDialogOpen(false)}

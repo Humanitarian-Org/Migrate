@@ -29,15 +29,15 @@ const Dashboard: React.FC = () => {
 
   const quickActions: QuickActionCard[] = [
     {
-      title: 'Bulk Import Beneficiaries',
-      description: 'Upload a CSV file to import multiple beneficiaries at once',
+      title: 'Bulk Import Transactions',
+      description: 'Upload a CSV file to import multiple transactions at once',
       icon: <UploadIcon sx={{ fontSize: 40 }} />,
       color: 'primary',
       action: () => navigate('/beneficiary/bulk-import'),
     },
     {
-      title: 'View Beneficiaries',
-      description: 'Browse and manage existing beneficiary records',
+      title: 'View Transactions',
+      description: 'Browse and manage existing transaction records',
       icon: <PeopleIcon sx={{ fontSize: 40 }} />,
       color: 'secondary',
       action: () => navigate('/beneficiary/list'),
@@ -61,11 +61,11 @@ const Dashboard: React.FC = () => {
   return (
     <Box sx={{ flexGrow: 1, p: 3 }}>
       <Typography variant="h4" component="h1" gutterBottom>
-        Humanitarian.org Migration Platform Dashboard
+        AcmeCorp File Processing Dashboard
       </Typography>
       
       <Typography variant="body1" color="text.secondary" paragraph>
-        Welcome to the Humanitarian.org Migration Platform. Use the quick actions below to get started,
+        Welcome to the AcmeCorp File Processing Platform. Use the quick actions below to get started,
         or navigate using the sidebar menu.
       </Typography>
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document serves as the **central source of truth** for all beneficiary validation rules across the Humanitarian.org Migration Platform. These rules are implemented in multiple locations and should be kept in sync:
+This document serves as the **central source of truth** for all beneficiary validation rules across the AcmeCorp Migration Platform. These rules are implemented in multiple locations and should be kept in sync:
 
 ## Validation Implementation Layers
 

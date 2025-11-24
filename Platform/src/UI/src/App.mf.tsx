@@ -33,26 +33,26 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/beneficiary/bulk-import" element={<BeneficiaryBulkImport />} />
             
-            {/* Dynamic route for beneficiary micro-frontend */}
+            {/* Dynamic route for transaction micro-frontend */}}
             <Route 
               path="/beneficiary/bulk-import/details/:correlationId" 
               element={
                 <MicroFrontendLoader
                   scope="beneficiaryUI"
                   module="./BulkImportDetails"
-                  fallback={<div>Loading beneficiary details...</div>}
+                  fallback={<div>Loading transaction details...</div>}
                 />
               } 
             />
             
-            {/* More dynamic routes for other beneficiary pages */}
+            {/* More dynamic routes for other transaction pages */}}
             <Route 
               path="/beneficiary/*" 
               element={
                 <MicroFrontendLoader
                   scope="beneficiaryUI"
                   module="./BeneficiaryRoutes"
-                  fallback={<div>Loading beneficiary module...</div>}
+                  fallback={<div>Loading transaction module...</div>}
                 />
               } 
             />

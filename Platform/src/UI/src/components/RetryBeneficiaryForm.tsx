@@ -324,7 +324,7 @@ const RetryBeneficiaryForm: React.FC<RetryBeneficiaryFormProps> = ({
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <RetryIcon color="primary" />
           <Typography variant="h6">
-            Retry Registration: {beneficiary.firstName} {beneficiary.lastName}
+            Retry Payment: {beneficiary.firstName} {beneficiary.lastName}
           </Typography>
         </Box>
       </DialogTitle>
@@ -362,7 +362,7 @@ const RetryBeneficiaryForm: React.FC<RetryBeneficiaryFormProps> = ({
         )}
 
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Review and correct the information below, then click "Retry Registration" to submit directly to the Beneficiary system.
+          Review and correct the information below, then click "Retry Payment" to submit directly to the payments system.
         </Typography>
 
         <Grid container spacing={2}>
@@ -655,7 +655,7 @@ const RetryBeneficiaryForm: React.FC<RetryBeneficiaryFormProps> = ({
           startIcon={loading ? <CircularProgress size={20} /> : <SaveIcon />}
           disabled={loading}
         >
-          {loading ? 'Registering...' : 'Retry Registration'}
+          {loading ? 'Registering...' : 'Retry Payment'}
         </Button>
       </DialogActions>
     </Dialog>

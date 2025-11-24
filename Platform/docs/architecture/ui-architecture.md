@@ -42,7 +42,7 @@ graph TD
 
 **Key Feature**: UI modules loaded on-demand (lazy loading).
 
-### 3. Humanitarian.org Branding
+### 3. AcmeCorp Branding
 Consistent design across all modules:
 
 **Colors**:
@@ -61,7 +61,7 @@ Consistent design across all modules:
 The Platform UI provides:
 - **Routing**: Top-level routes for all domains
 - **Navigation**: Header, sidebar, menu
-- **Theme**: MUI theme with Humanitarian.org branding
+- **Theme**: MUI theme with AcmeCorp branding
 - **Authentication**: Login, logout, user context
 - **SignalR**: Real-time notification hub
 - **Shared Components**: Layout, error boundaries, loading states
@@ -71,7 +71,7 @@ The Platform UI provides:
 ```
 Platform/src/UI/
 ├── public/
-│   └── humanitarian-logo.svg
+│   └── acmecorp-logo.svg
 ├── src/
 │   ├── components/
 │   │   ├── layout/
@@ -146,13 +146,13 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#0072CE',  // Humanitarian.org Blue
+      main: '#0072CE',  // AcmeCorp Blue
       light: '#4A9FE8',
       dark: '#005199',
       contrastText: '#FFFFFF'
     },
     secondary: {
-      main: '#FF6B35',  // Humanitarian.org Orange
+      main: '#FF6B35',  // AcmeCorp Orange
       light: '#FF8C5E',
       dark: '#CC5529',
       contrastText: '#FFFFFF'
@@ -234,14 +234,14 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         
         <Box
           component="img"
-          src="/humanitarian-logo.svg"
-          alt="Humanitarian.org"
+          src="/acmecorp-logo.svg"
+          alt="AcmeCorp"
           sx={{ height: 40, mr: 2, cursor: 'pointer' }}
           onClick={() => navigate('/')}
         />
         
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Humanitarian.org Migration Platform
+          AcmeCorp Migration Platform
         </Typography>
         
         {/* User menu, notifications, etc. */}

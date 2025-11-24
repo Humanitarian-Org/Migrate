@@ -1,5 +1,5 @@
-# Humanitarian.org Platform UI Setup Script
-Write-Host "Humanitarian.org Platform UI Setup Script" -ForegroundColor Cyan
+# AcmeCorp Platform UI Setup Script
+Write-Host "AcmeCorp Platform UI Setup Script" -ForegroundColor Cyan
 Write-Host "============================" -ForegroundColor Cyan
 Write-Host ""
 

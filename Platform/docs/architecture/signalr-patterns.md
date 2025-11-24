@@ -307,7 +307,7 @@ export const useSignalR = (options: UseSignalROptions) => {
 ```typescript
 // Beneficiary/src/UI/src/pages/BulkUploadPage.tsx
 import React, { useState, useEffect } from 'react';
-import { useSignalR } from '@humanitarian/platform-ui/hooks/useSignalR';
+import { useSignalR } from '@acmecorp/platform-ui/hooks/useSignalR';
 
 const BulkUploadPage: React.FC = () => {
   const [uploadId, setUploadId] = useState<string | null>(null);

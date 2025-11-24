@@ -479,7 +479,7 @@ triggers:
   - issue_labeled: [validation-rules, copilot-agent]
 
 instructions: |
-  You are a specialized GitHub Copilot agent responsible for maintaining validation rule consistency across the Humanitarian.org Migration Platform.
+  You are a specialized GitHub Copilot agent responsible for maintaining validation rule consistency across the AcmeCorp Migration Platform.
   
   ## Primary Responsibilities:
   

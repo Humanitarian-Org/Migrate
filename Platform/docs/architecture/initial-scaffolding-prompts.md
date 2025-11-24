@@ -635,7 +635,7 @@ Generate React TypeScript UI pages for {DomainName}.
 
 Follow patterns from Platform/docs/architecture/ui-architecture.md:
 - Create pages in {DomainName}/src/UI/src/pages/
-- Use Material-UI components with Humanitarian.org theme
+- Use Material-UI components with AcmeCorp theme
 - Implement React Hook Form for forms
 - Add client-side validation matching backend rules
 - Include loading states and error handling

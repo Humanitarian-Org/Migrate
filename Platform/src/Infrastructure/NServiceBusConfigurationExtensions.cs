@@ -61,6 +61,7 @@ namespace Infrastructure
                         "AzureServiceBus connection string is missing in configuration. " +
                         "Add it to local.settings.json");
                 }
+                Console.WriteLine($"[NServiceBus] ConnectionString: {connectionString}");
 
                 var cosmosDbConnection = configuration["CosmosDbConnectionString"];
                 if (string.IsNullOrWhiteSpace(cosmosDbConnection))

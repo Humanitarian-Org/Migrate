@@ -61,14 +61,14 @@ const ValidationRulesDialog: React.FC<ValidationRulesDialogProps> = ({ open, onC
       name: 'First Name',
       field: 'firstName',
       maxLength: 37,
-      description: 'Beneficiary\'s first name',
+      description: 'Transaction sender first name',
       icon: <PersonIcon color="primary" />
     },
     {
       name: 'Last Name',
       field: 'lastName',
       maxLength: 100,
-      description: 'Beneficiary\'s last name',
+      description: 'Transaction sender last name',
       icon: <PersonIcon color="primary" />
     },
     {
@@ -83,7 +83,7 @@ const ValidationRulesDialog: React.FC<ValidationRulesDialogProps> = ({ open, onC
       name: 'Nationality',
       field: 'nationality',
       maxLength: 50,
-      description: 'Beneficiary\'s nationality',
+      description: 'Transaction sender nationality',
       icon: <PersonIcon color="primary" />
     },
     {
@@ -212,7 +212,7 @@ const ValidationRulesDialog: React.FC<ValidationRulesDialogProps> = ({ open, onC
           name: 'Notes',
           field: 'notes',
           maxLength: 2000,
-          description: 'Additional notes about the beneficiary'
+          description: 'Additional notes about the transaction'
         }
       ]
     }
@@ -277,7 +277,7 @@ const ValidationRulesDialog: React.FC<ValidationRulesDialogProps> = ({ open, onC
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <RuleIcon color="primary" />
             <Typography variant="h6" component="div">
-              Beneficiary Validation Rules
+              Transaction Validation Rules
             </Typography>
           </Box>
           <IconButton onClick={onClose} size="small">

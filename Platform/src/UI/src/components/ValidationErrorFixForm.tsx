@@ -693,7 +693,7 @@ const ValidationErrorFixForm: React.FC<ValidationErrorFixFormProps> = ({
                       {renderTextField(recordIndex, 'caseWorker', 'Case Worker', false, false, 'text', 'Sarah Smith')}
                     </Grid>
                     <Grid item xs={12}>
-                      {renderTextField(recordIndex, 'notes', 'Notes', false, true, 'text', 'Additional notes about the beneficiary')}
+                      {renderTextField(recordIndex, 'notes', 'Notes', false, true, 'text', 'Additional notes about the transaction')}
                     </Grid>
                   </Grid>
                 </AccordionDetails>

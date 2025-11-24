@@ -1,16 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 
-// Humanitarian.org Official Brand Colors
+// AcmeCorp Official Brand Colors
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#0072CE', // Humanitarian.org Blue
+      main: '#0072CE', // AcmeCorp Blue
       light: '#4A9FDB',
       dark: '#005BA3',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#FF6B35', // Humanitarian.org Orange
+      main: '#FF6B35', // AcmeCorp Orange
       light: '#FF8A60',
       dark: '#E55A2B',
       contrastText: '#ffffff',

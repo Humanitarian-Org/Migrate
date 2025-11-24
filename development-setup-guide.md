@@ -1,8 +1,8 @@
-# Humanitarian.org Development Environment Setup Guide
+# AcmeCorp Development Environment Setup Guide
 
 ## Required Services for Local Development
 
-Your Humanitarian.org Migration Platform requires several services to run locally:
+Your AcmeCorp Migration Platform requires several services to run locally:
 
 ### 1. **Azurite (Azure Storage Emulator)**
 - **Purpose**: Emulates Azure Blob Storage, Queue Storage, and Table Storage

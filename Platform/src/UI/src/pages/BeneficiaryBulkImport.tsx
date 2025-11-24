@@ -461,7 +461,7 @@ const BeneficiaryBulkImport: React.FC = () => {
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
     link.setAttribute('href', url);
-    link.setAttribute('download', 'beneficiary_template.csv');
+    link.setAttribute('download', 'transaction_template.csv');
     link.style.visibility = 'hidden';
     document.body.appendChild(link);
     link.click();
@@ -576,7 +576,7 @@ const BeneficiaryBulkImport: React.FC = () => {
     } catch (error) {
       console.error('Error submitting data:', error);
       setNotification({
-        message: `Error importing beneficiaries: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        message: `Error importing transactions: ${error instanceof Error ? error.message : 'Unknown error'}`,
         severity: 'error',
         open: true,
       });
@@ -593,7 +593,7 @@ const BeneficiaryBulkImport: React.FC = () => {
     <Box sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
         <Typography variant="h4" component="h1">
-          Bulk Import Beneficiaries
+          Bulk Import Bank Transactions
         </Typography>
         
         {/* SignalR Connection Status */}
@@ -608,8 +608,8 @@ const BeneficiaryBulkImport: React.FC = () => {
       </Box>
 
       <Typography variant="body1" color="text.secondary" paragraph>
-        Upload a CSV or Excel file to import multiple beneficiaries at once.
-        The file should contain all required beneficiary information.
+        Upload a CSV or Excel file to import bank transactions at once.
+        The file should contain all required transaction information.
       </Typography>
 
       {/* Help Section */}

@@ -1,8 +1,8 @@
-# Humanitarian.org Migration Platform - Copilot Instructions
+# AcmeCorp Migration Platform - Copilot Instructions
 
 ## Repository Overview
 
-This is a multi-project migration platform for Humanitarian.org containing several business domains with both backend services and frontend applications:
+This is a multi-project migration platform for AcmeCorp containing several business domains with both backend services and frontend applications:
 
 - **Medical**: Medical message integration system (Azure Functions + NServiceBus)
 - **Beneficiary**: Beneficiary management system (Azure Functions + NServiceBus + React UI)
@@ -30,7 +30,7 @@ All three domains follow a consistent architecture:
 ### Frontend (React)
 - **React 18** - UI framework
 - **TypeScript** - Type safety
-- **Material-UI (MUI)** - Component library with Humanitarian.org branding
+- **Material-UI (MUI)** - Component library with AcmeCorp branding
 - **Module Federation** - Micro-frontend architecture
 - **React Router** - Client-side routing
 - **React Hook Form** - Form validation
@@ -93,7 +93,7 @@ Shared platform components providing common functionality, UI shell, and infrast
 ### UI Architecture (Micro-Frontend)
 - **Shell Application**: Main routing, navigation, and shared components
 - **Module Federation**: Allows Medical/Beneficiary modules to contribute UI independently
-- **Humanitarian.org Branding**: Consistent color scheme (Blue: #0072CE, Orange: #FF6B35)
+- **AcmeCorp Branding**: Consistent color scheme (Blue: #0072CE, Orange: #FF6B35)
 - **Shared Components**: Layout, navigation, common utilities
 
 ### SignalR Event Architecture
@@ -118,7 +118,7 @@ Before running the application locally, ensure these services are running:
 3. **Azure Service Bus** - Cloud-based messaging (configured in local.settings.json)
 
 ### VS Code Workspace Setup
-The repository includes a multi-folder workspace (`Humanitarian-Migrate.code-workspace`) with three folders:
+The repository includes a multi-folder workspace (`AcmeCorp-Migrate.code-workspace`) with three folders:
 - Medical
 - Beneficiary  
 - Platform
@@ -230,7 +230,7 @@ src/
 │   ├── layout/          # Header, Sidebar, Footer
 │   └── common/          # Reusable UI components
 ├── pages/               # Page components (Dashboard, BulkImport, etc.)
-├── theme/               # MUI theme configuration (Humanitarian.org branding)
+├── theme/               # MUI theme configuration (AcmeCorp branding)
 ├── types/               # TypeScript type definitions
 ├── utils/               # Utility functions (validation, parsing)
 └── App.tsx              # Main application with routing
@@ -240,12 +240,12 @@ src/
 - Use TypeScript for all new code
 - Follow React Hooks patterns (no class components)
 - Use React Hook Form for form management
-- Apply MUI components consistently with Humanitarian.org theme
+- Apply MUI components consistently with AcmeCorp theme
 - Keep components focused and single-responsibility
 - Extract reusable logic into custom hooks
 - Use proper TypeScript types (avoid `any`)
 
-### Humanitarian.org Branding Standards
+### AcmeCorp Branding Standards
 - Primary Blue: #0072CE
 - Secondary Orange: #FF6B35
 - Use MUI theme configuration in `theme/` directory
@@ -611,7 +611,7 @@ curl http://localhost:3000    # Check UI
 **Configuration:**
 - Backend: `{Domain}/src/{Project}/local.settings.json`
 - Frontend: `{Domain}/src/UI/package.json`
-- Workspace: `Humanitarian-Migrate.code-workspace`
+- Workspace: `AcmeCorp-Migrate.code-workspace`
 - VS Code: `.vscode/launch.json`, `.vscode/tasks.json`
 
 **Documentation:**
@@ -641,7 +641,7 @@ curl http://localhost:3000    # Check UI
 1. **Always use interfaces** for services (testability)
 2. **Separate concerns**: SignalR handlers vs business logic
 3. **Use TypeScript** for all new frontend code
-4. **Follow Humanitarian.org branding** in UI components
+4. **Follow AcmeCorp branding** in UI components
 5. **Log at appropriate levels** (Information, Warning, Error)
 6. **Handle errors gracefully** with user-friendly messages
 7. **Validate input** on both client and server

@@ -1,9 +1,9 @@
 <svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-  <!-- Humanitarian.org Logo Design -->
+  <!-- AcmeCorp Logo Design -->
   <rect width="120" height="60" fill="#0072CE"/>
   
-  <!-- Humanitarian.org Text -->
-  <text x="60" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Humanitarian.org</text>
+  <!-- AcmeCorp Text -->
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AcmeCorp</text>
   
   <!-- Decorative elements -->
   <circle cx="15" cy="15" r="3" fill="#FF6B35"/>
